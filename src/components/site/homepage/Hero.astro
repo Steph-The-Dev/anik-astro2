@@ -1,0 +1,29 @@
+---
+import LayoutSite from '@layouts/LayoutSite.astro'
+---
+
+<LayoutSite>
+    <main class="h-screen">
+        <section class="h-full p-4 ">
+            <div class="flex flex-col justify-between h-full max-w-6xl md:max-w-[80%] px-4 py-4 mx-auto items-left">
+                    <div class="w-2/3">
+                        <h1 class="my-32 text-5xl font-bold leading-tight drop-shadow-lg sm:leading-tight md:leading-tight text-wrap sm:text-7xl md:text-8xl ">Herzlich<br>Willkommen!</h1>
+                    </div>
+                    <div class="w-1/2">
+                        <h1 class="my-48 text-4xl font-bold leading-tight break-words drop-shadow-lg sm:leading-tight md:leading-tight sm:text-5xl md:text-7xl">Ich heisse <span class="italic underline decoration-orange-200 underline-offset-4">Anik von Rohr</span> und bin <systemische class="italic underline decoration-orange-200 underline-offset-4">systemische Beraterin</span>.</h1>
+                    </div>
+            </div>
+        </section>      
+    </main>
+</LayoutSite>
+
+<style>
+    section {
+        background-image: url(../../../assets/images/anik-hero-image.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        }
+</style>
