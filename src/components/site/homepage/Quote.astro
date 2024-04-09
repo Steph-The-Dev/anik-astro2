@@ -5,7 +5,7 @@ import LayoutSite from '@layouts/LayoutSite.astro'
 <LayoutSite>
     <main class="bg-amber-500">
         <section class="h-full">
-            <div class="flex flex-col justify-between h-full p-16 mx-auto md:px-32 md:py-32 ">
+            <div class="flex flex-col justify-between h-full p-16 mx-auto md:px-32 md:py-32 drop-shadow-lg ">
                 <h1 class="text-4xl font-bold leading-tight text-center sm:leading-tight md:leading-tight text-wrap sm:text-5xl md:text-6xl">
                     “Das Leben ist nicht das, was es sein sollte. Es ist, was es ist. Die Art und Weise, damit umzugehen, macht den Unterschied.”
                 </h1>
@@ -14,3 +14,16 @@ import LayoutSite from '@layouts/LayoutSite.astro'
         </section>      
     </main>
 </LayoutSite>
+
+
+<style>
+    main {
+        background-image: url(../../../assets/images/anik-hero-image.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-blend-mode: screen;
+        width: 100%;
+        height: 100%;
+        }
+</style>
