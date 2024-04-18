@@ -1,5 +1,6 @@
 ---
 const { title = "Anik von Rohr | Systemische Beratung" } = Astro.props
+import '../site.css'
 
 ---
 
@@ -12,7 +13,7 @@ const { title = "Anik von Rohr | Systemische Beratung" } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class={`dark:bg-black dark:text-white`}>
+	<body>
     <div>
         <slot />
     </div>
