@@ -6,6 +6,7 @@ export default {
       colors: {
         'site-bg-main': 'var(--background-200)',
         'contact-bg-main': 'var(--primary-200)',
+        'contact-bg-secondary': 'var(--secondary-200)',
         'nav-bg': 'var(--background-200)',
       },
     },
