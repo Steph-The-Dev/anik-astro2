@@ -4,7 +4,7 @@ import Logo from "@images/logo-anik.png"
 ---
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@2"></script>
 
-    <nav id='navbar' x-data="{ open: false }" class="fixed top-0 z-50 w-full text-white bg-nav-bg">
+    <nav id='navbar' x-data="{ open: false }" class="fixed top-0 z-50 w-full text-white bg-[--primary-200]">
         <div class="flex items-center justify-between h-full p-4 px-12 mx-auto">
 
             <div class="flex-1">
@@ -34,22 +34,22 @@ import Logo from "@images/logo-anik.png"
 
 
 <script>
-let lastScrollTop = 0; // This variable will hold the last scroll position
-const navbar = document.getElementById('navbar');
+    let lastScrollTop = 0; // This variable will hold the last scroll position
+    const navbar = document.getElementById('navbar');
 
-window.addEventListener('scroll', function() {
-  let currentScroll = window.scrollY || document.documentElement.scrollTop;
-  
-  if (currentScroll > lastScrollTop) {
-    // Scroll Down
-    navbar!.style.top = '-100px'; // Adjust based on navbar height
-  } else {
-    // Scroll Up
-    navbar!.style.top = '0';
-  }
-  
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-}, false);
+    window.addEventListener('scroll', function() {
+    let currentScroll = window.scrollY || document.documentElement.scrollTop;
+    
+    if (currentScroll > lastScrollTop) {
+        // Scroll Down
+        navbar!.style.top = '-100px'; // Adjust based on navbar height
+    } else {
+        // Scroll Up
+        navbar!.style.top = '0';
+    }
+    
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+    }, false);
 </script>
 
 <style>

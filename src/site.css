@@ -132,6 +132,7 @@
 body {
   font-family: 'Proza Libre';
   font-weight: 400;
+  background-color: var(--secondary-100);
 }
 
 h1,
@@ -169,8 +170,4 @@ h5 {
 
 small {
   font-size: 0.75rem; /* 12px */
-}
-
-body {
-  font-family: Poppins, sans-serif;
 }
