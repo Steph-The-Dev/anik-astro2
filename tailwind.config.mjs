@@ -17,6 +17,7 @@ export default {
         body: 'Proza Libre',
       },
       fontWeight: {
+        thin: '100',
         normal: '400',
         bold: '700',
       },
@@ -24,6 +25,7 @@ export default {
         'site-bg-main': 'var(--background-200)',
         'contact-bg-main': 'var(--primary-200)',
         'contact-bg-secondary': 'var(--secondary-200)',
+        'slider-bg-text': 'rgb(var(--slider-bg-text) / 1)',
         text: {
           50: 'var(--text-50)',
           100: 'var(--text-100)',
