@@ -6,12 +6,12 @@ import AnikKontakt from '@images/AnikKontakt_H30A2015.webp'
 ---
 
 <LayoutSite>
-    <main id="contact" class="max-h-full p-4 lg:py-12 sm:px-12 bg-site-bg-main">
+    <main id="contact" class="p-4 lg:py-12 sm:px-12">
 
-        <section class="grid grid-cols-1 lg:grid-cols-2 [grid-template-areas: 'cnt_info' 'cnt_img' 'cnt_form'] lg:[grid-template-areas: 'cnt_info cnt_form' 'cnt_img cnt_form'] justify-center h-full gap-12 mx-auto bg-contact-bg-main">
-            <div class="max-h-content">
+        <section class="grid grid-cols-1 lg:grid-cols-2 [grid-template-areas: 'cnt_info' 'cnt_img' 'cnt_form'] lg:[grid-template-areas: 'cnt_info cnt_form' 'cnt_info cnt_form'] justify-center gap-12 mx-auto">
+            <div class="h-full">
 
-                <div id="contact-information" class="cnt_info lg:h-1/3">
+                <div id="contact-information" class="cnt_info">
                     <div class="mx-auto rounded-md shadow-sm ">
                         <h2 id="contact-information__name">Anik von Rohr</h2>
                         <h3 id="contact-information__title">Systemische Beraterin (DGSF-zertifiziert)</h3>
@@ -19,16 +19,16 @@ import AnikKontakt from '@images/AnikKontakt_H30A2015.webp'
     
                     </div>
                 </div>
-                <div class="h-full cnt_img">
-                    <Image src={AnikKontakt} alt="Anik von Rohr" class="object-cover object-center" />
+                <div class="cnt_img">
+                    <Image src={AnikKontakt} alt="Anik von Rohr" class="object-cover object-center w-auto h-full" />
                 </div>
             </div>
 
             <!-- https://web3forms.com/ -->
             
-            <div class="flex items-center h-full cnt_form">
-                <div class="container flex w-full h-full mx-auto">
-                    <div class="p-2 mx-auto bg-white shadow-sm ">
+            <div class="flex items-center cnt_form">
+                <div class="container flex mx-auto">
+                    <div class="p-2 mx-auto bg-white shadow-sm">
                         <div class="text-center">
                             <h1 class="my-3 text-3xl font-semibold text-gray-700">
                                 Schreib mir!
@@ -58,7 +58,7 @@ import AnikKontakt from '@images/AnikKontakt_H30A2015.webp'
                                 <div class="mb-6">
                                     <label for="message" class="block mb-2 text-lg text-gray-600 dark:text-gray-400">Nachricht</label>
                 
-                                    <textarea rows="5" name="message" id="message" placeholder="Nachricht" class="w-full h-full px-3 py-2 text-gray-800 border border-gray-300 placeholder-amber-800/50 bg-amber-200/50 focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300" required></textarea>
+                                    <textarea rows="5" name="message" id="message" placeholder="Nachricht" class="w-full px-3 py-2 text-gray-800 border border-gray-300 placeholder-amber-800/50 bg-amber-200/50 focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300" required></textarea>
                                 </div>
                                 <div class="mb-6">
                                     <button type="submit" class="w-full px-3 py-4 text-white bg-amber-500 focus:bg-indigo-600 focus:outline-none">
@@ -69,7 +69,7 @@ import AnikKontakt from '@images/AnikKontakt_H30A2015.webp'
                             </form>
                         </div>
                     </div>
-                    </div>
+                </div>
             </div>
 
         </section>      
@@ -138,4 +138,5 @@ import AnikKontakt from '@images/AnikKontakt_H30A2015.webp'
         width: 100%;
         height: 100%;
         }
+        
 </style>
