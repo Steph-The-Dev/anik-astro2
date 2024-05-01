@@ -3,20 +3,20 @@ import { Image } from 'astro:assets';
 import Logo from "@images/202404-anik-logo.svg"
 ---
 
-    <nav id='navbar' x-data="{ open: false }" class="w-screen">
-        <div class="flex items-center justify-between h-full w-full py-4 px-12 mx-auto bg-[--primary-200]">
+    <nav id='navbar' x-data="{ open: false }" class="fixed top-0 z-50 w-screen">
+        <div class="flex items-center justify-between h-full w-full py-4 px-4 lg:px-12 mx-auto bg-[--primary-200]">
 
             <div class="flex-1">
-                <a href="/"><span class="text-[var(--primary-700)] font-heading text-xl sm:text-2xl lg:text-4xl font-bold">Anik von Rohr</span></a>
+                <a href="/"><span id="nav__name" class="text-[var(--primary-700)] font-heading font-bold">Anik von Rohr</span></a>
             </div>
 
             <div>
                 <Image src={Logo} alt="Logo" class="size-12 lg:w-16 lg:h-16">
             </div>
 
-            <div class="hidden lg:flex flex-1 justify-end text-[var(--primary-700)] w-1/3 right-0 font-body text-lg lg:text-xl lg:items-center">
-                <a href="#" class="mr-4">Systemische Beratung</a>
-                <a href="#" class="mr-4">Über mich</a>
+            <div id="menu__items" class="hidden lg:flex flex-1 justify-end text-[var(--primary-700)] w-1/3 right-0 font-body lg:items-center gap-3 xl:gap-8">
+                <a href="#" class="">Systemische Beratung</a>
+                <a href="#" class="">Über mich</a>
                 <a href="#contact">Kontakt</a>
             </div>
             <!-- Mobile menu button -->
@@ -59,8 +59,15 @@ import Logo from "@images/202404-anik-logo.svg"
 </script>
 
 <style>
+    #menu__items {
+        font-size: clamp(1rem, 1rem + .5vi, 2rem);
+    }
 #navbar {
   transition: top 0.5s ease-in-out; /* Adjusted timing and easing */
   transition-delay: 500ms; /* Adjusted delay */
+}
+
+#nav__name {
+    font-size: clamp(0.75rem, 1.2rem + 2vw, 3rem);
 }
 </style>
