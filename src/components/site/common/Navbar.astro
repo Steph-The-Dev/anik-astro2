@@ -46,6 +46,8 @@ import Logo from "@images/202404-anik-logo.svg"
     window.addEventListener('scroll', function() {
     let currentScroll = window.scrollY || document.documentElement.scrollTop;
     
+    if (document.documentElement.scrollTop > 100) {
+        navbar!.style.top = '0';
     if (currentScroll > lastScrollTop) {
         // Scroll Down
         navbar!.style.top = '-110px'; // Adjust based on navbar height
@@ -53,6 +55,7 @@ import Logo from "@images/202404-anik-logo.svg"
         // Scroll Up
         navbar!.style.top = '0';
     }
+}
     
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
     }, false);
