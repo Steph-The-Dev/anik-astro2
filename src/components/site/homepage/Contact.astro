@@ -1,24 +1,32 @@
 ---
 import LayoutSite from '@layouts/LayoutSite.astro'
+import { Image } from 'astro:assets';
+
+import AnikKontakt from '@images/AnikKontakt_H30A2015.webp'
 ---
 
 <LayoutSite>
-    <main class="max-h-full p-4 sm:py-12 sm:px-12 bg-site-bg-main">
-        <div id="contact"></div>
-        <section class="flex flex-col justify-center h-full gap-12 px-12 mx-auto xl:flex-row bg-contact-bg-main">
-            <div id="contact-information" class="flex-1 p-8 ">
-                <div class="mx-auto my-10 rounded-md shadow-sm bg-contact-bg-secondary h-[90%]">
-                    <h1 class="text-3xl">Anik von Rohr</h1>
-                    <h2>Systemische Beraterin (DGSF-zertifiziert)</h2>
-                    <h2>Lehrkraft für die Primarschule Unter- und Mittelstufe (Diplom, Basel, Schweiz)</h2>
+    <main id="contact" class="p-4 lg:py-12 sm:px-12">
 
+        <section class="gap-12 mx-auto ">
+            
+            <div id="contact-information" class="w-full cnt_info">
+                <div class="mx-auto rounded-md shadow-sm">
+                    <h2 id="contact-information__name">Anik von Rohr</h2>
+                    <h3 id="contact-information__title">Systemische Beraterin (DGSF-zertifiziert)</h3>
+                    <h3 id="contact-information__title">Lehrkraft für die Primarschule Unter- und Mittelstufe (Diplom, Basel, Schweiz)</h3>
                 </div>
             </div>
-            <div id="contact-form" class="flex-1 p-8">
-<!-- https://web3forms.com/ -->
-                <div class="flex items-center max-h-screen">
-                    <div class="container mx-auto">
-                        <div class="p-5 mx-auto my-10 bg-white rounded-md shadow-sm">
+
+            <div class="grid gap-4 md:grid-cols-2">
+                <div class="w-auto overflow-hidden max-h-fit h-[750px] cnt_img">
+                    <Image src={AnikKontakt} alt="Anik von Rohr" class="object-cover object-top w-full h-full cnt_img" />
+                </div>
+                <!-- https://web3forms.com/ -->
+                
+                <div class="items-center col-span-1 cnt_form">
+                    <div class="container flex h-full mx-auto">
+                        <div class="w-full mx-auto bg-white shadow-sm lg:p-2">
                             <div class="text-center">
                                 <h1 class="my-3 text-3xl font-semibold text-gray-700">
                                     Schreib mir!
@@ -28,30 +36,30 @@ import LayoutSite from '@layouts/LayoutSite.astro'
                                 </p>
                             </div>
                             <div class="m-7">
-                                <form action="https://api.web3forms.com/submit" method="POST" id="form">
+                                <form action="https://api.web3forms.com/submit" method="POST" id="form" class="h-full">
                                     <input type="hidden" name="access_key" value="25c1888d-2861-4dc5-9ae6-ca3148a9bd9a" />
                                     <input type="hidden" name="subject" value="Neue Nachricht von deiner Webseite" />
                                     <input type="checkbox" name="botcheck" id="" style="display: none;" />
                     
                                     <div class="mb-6">
-                                        <label for="name" class="block mb-2 text-sm text-gray-700">Vollständiger Name</label>
-                                        <input type="text" name="name" id="name" placeholder="Vorname Nachname" required class="w-full px-3 py-2 text-gray-800 border border-gray-300 rounded-md placeholder-amber-800/50 bg-amber-200/50 focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300" />
+                                        <label for="name" class="block mb-2 text-lg text-gray-700">Vollständiger Name</label>
+                                        <input type="text" name="name" id="name" placeholder="Vorname Nachname" required class="w-full px-3 py-2 text-gray-800 border border-gray-300 placeholder-amber-800/50 bg-amber-200/50 focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300" />
                                     </div>
                                     <div class="mb-6">
-                                        <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Addresse</label>
-                                        <input type="email" name="email" id="email" placeholder="deine@email.de" required class="w-full px-3 py-2 text-gray-800 border border-gray-300 rounded-md placeholder-amber-800/50 bg-amber-200/50 focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300" />
+                                        <label for="email" class="block mb-2 text-lg text-gray-600 dark:text-gray-400">Email Addresse</label>
+                                        <input type="email" name="email" id="email" placeholder="deine@email.de" required class="w-full px-3 py-2 text-gray-800 border border-gray-300 placeholder-amber-800/50 bg-amber-200/50 focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300" />
                                     </div>
                                     <div class="mb-6">
-                                        <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Telefonnummer</label>
-                                        <input type="text" name="phone" id="phone" placeholder="+49 170 123456" required class="w-full px-3 py-2 text-gray-800 border border-gray-300 rounded-md placeholder-amber-800/50 bg-amber-200/50 focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300" />
+                                        <label for="phone" class="text-lg text-gray-600 dark:text-gray-400">Telefonnummer</label>
+                                        <input type="text" name="phone" id="phone" placeholder="+49 170 123456" required class="w-full px-3 py-2 text-gray-800 border border-gray-300 placeholder-amber-800/50 bg-amber-200/50 focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300" />
                                     </div>
                                     <div class="mb-6">
-                                        <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Nachricht</label>
+                                        <label for="message" class="block mb-2 text-lg text-gray-600 dark:text-gray-400">Nachricht</label>
                     
-                                        <textarea rows="5" name="message" id="message" placeholder="Nachricht" class="w-full px-3 py-2 text-gray-800 border border-gray-300 rounded-md placeholder-amber-800/50 bg-amber-200/50 focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300" required></textarea>
+                                        <textarea rows="5" name="message" id="message" placeholder="Nachricht" class="w-full px-3 py-2 text-gray-800 border border-gray-300 placeholder-amber-800/50 bg-amber-200/50 focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300" required></textarea>
                                     </div>
                                     <div class="mb-6">
-                                        <button type="submit" class="w-full px-3 py-4 text-white rounded-md bg-amber-500 focus:bg-indigo-600 focus:outline-none">
+                                        <button type="submit" class="w-full px-3 py-4 text-white bg-amber-500 focus:bg-indigo-600 focus:outline-none">
                                             Nachricht abschicken
                                         </button>
                                     </div>
@@ -59,9 +67,10 @@ import LayoutSite from '@layouts/LayoutSite.astro'
                                 </form>
                             </div>
                         </div>
-                      </div>
                     </div>
+                </div>
             </div>
+
 
         </section>      
     </main>
@@ -113,3 +122,21 @@ import LayoutSite from '@layouts/LayoutSite.astro'
             });
     });
     </script>
+
+<style>
+    #contact-information__name {
+        font-size: clamp(1.5rem, 1.5rem + 2.5vi, 4rem);
+    }
+    #contact-information__title {
+        font-size: clamp(1.5rem, 1.5rem + 1vi, 3rem);
+    }
+    main {
+        background-image: url(../../../assets/backgrounds/grainy-bg-c4af201.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        }
+        
+</style>

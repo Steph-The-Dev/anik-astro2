@@ -11,13 +11,13 @@ import Batman from '@images/batman.webp'
 <!-- Using the great slider by Swiffy: https://swiffyslider.com/ -->
 
 <LayoutSite>
-    <main class="p-12 min-h-fit bg-site-bg-main">
-        <div class="h-[75dvh] swiffy-slider slider-item-reveal slider-item-ratio-1x1 slider-nav-visible slider-nav-autoplay slider-nav-autopause" data-slider-nav-autoplay-interval="3000">
+    <main class="py-8 sm:p-4 lg:p-12 min-h-[65dvh] flex items-center">
+        <div class="h-[50dvh] swiffy-slider slider-item-reveal slider-item-ratio-1x1 slider-nav-visible slider-nav-autoplay slider-nav-autopause" data-slider-nav-autoplay-interval="3000">
             <ul class="slider-container">
                 <div class="relative slider-item">
                     <Image class="absolute" src={Batman} alt="a batman" style="max-width: 100%;height: 100%;object-fit:cover;" />
-                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full bg-amber-400/50">
-                        <div class="flex flex-col items-center content-center justify-center h-full text-2xl font-bold leading-tight text-center sm:text-4xl lg:text-5xl drop-shadow-lg">
+                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full" style="background: rgba(196, 175, 146 , 0.75);">
+                        <div class="flex flex-col items-center content-center justify-center h-full font-bold leading-tight text-center carousel__text l">
                             <h2>Sie haben eine lebhafte Familie und keine ruhige Minute?</h2>
                             <h2 class="mt-12">Sie machen sich Sorgen um ihre Kinder?</h2>
                         </div>
@@ -26,15 +26,15 @@ import Batman from '@images/batman.webp'
                 
                 <div class="relative slider-item">
                     <Image class="absolute" src={Pencil} alt="a few pencils" style="max-width: 100%;height: 100%;object-fit:cover;" />
-                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full bg-amber-400/50">
-                        <h2 class="text-4xl font-bold leading-tight text-center xl:text-5xl drop-shadow-lg text-wrap">Neuorientierung beim Beruf oder Ausbildung</h2>
+                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 carousel__text lg:right-0 lg:w-1/3 h-1/3 lg:h-full" style="background: rgba(196, 175, 146 , 0.75);">
+                        <h2 class="font-bold leading-tight text-center text-wrap">Neuorientierung beim Beruf oder Ausbildung</h2>
                     </div>
                 </div>
 
                 <div class="relative slider-item">
                     <Image class="absolute" src={GirlWithRedHat} alt="a girl with a red hat" style="max-width: 100%;height: 100%;object-fit:cover;" />
-                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full bg-amber-400/50">
-                        <div class="flex flex-col items-center content-center justify-center h-full text-2xl font-bold leading-tight text-center sm:text-4xl lg:text-5xl drop-shadow-lg">
+                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full" style="background: rgba(196, 175, 146 , 0.75);">
+                        <div class="flex flex-col items-center content-center justify-center h-full font-bold leading-tight text-center carousel__text">
                             <h2>Sie möchten sich besser abgrenzen können?</h2>
                             <h2 class="mt-12">Sie haben einen Konflikt und wissen nicht wie Sie mit diesem umgehen sollen?</h2>
                         </div>
@@ -43,8 +43,8 @@ import Batman from '@images/batman.webp'
 
                 <div class="relative slider-item">
                     <Image class="absolute" src={Graffiti} alt="a graffiti" style="max-width: 100%;height: 100%;object-fit:cover;" />
-                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full bg-amber-400/50">
-                            <div class="flex flex-col items-center content-center justify-center h-full text-2xl font-bold leading-tight text-center sm:text-4xl lg:text-5xl drop-shadow-lg">
+                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full" style="background: rgba(196, 175, 146 , 0.75);">
+                            <div class="flex flex-col items-center content-center justify-center h-full font-bold leading-tight text-center carousel__text">
                                 <h2>Sie möchten etwas in Ihrem Leben verändern?</h2>
                                 <h2 class="mt-12">Sie geraten immer wieder in ähnliche Muster und würden dies gern
                                     ändern?</h2>
@@ -69,3 +69,18 @@ import Batman from '@images/batman.webp'
 
 <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
 
+
+
+<style>
+    .carousel__text {
+        font-size: clamp(1rem, 1.5rem + 1vi, 4rem);
+    }
+    main {
+        background-image: url(../../../assets/backgrounds/grainy-bg-c4af201.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        }
+</style>
