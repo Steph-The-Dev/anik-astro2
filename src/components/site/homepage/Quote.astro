@@ -3,13 +3,13 @@ import LayoutSite from '@layouts/LayoutSite.astro'
 ---
 
 <LayoutSite>
-    <main class="min-h-[40dvh] flex items-center">
+    <main class="max-h-[30dvh] flex items-center lg:w-2/3 max-w-[1600px] m-2 mx-auto">
         <section class="h-full">
-            <div class="flex flex-col justify-between h-full p-2 py-8 mx-auto md:px-32 md:py-32 sm:p-4 lg:p-12">
-                <h1 id="quote__text" class="font-bold leading-tight text-center sm:leading-tight md:leading-tight text-wrap">
+            <div class="flex flex-col justify-between h-full p-2 py-12 mx-auto md:px-32 md:py-32 sm:p-4 lg:p-12">
+                <h1 id="quote__text" class="font-bold leading-tight text-center sm:leading-tight md:leading-tight text-wrap text-[var(--text-800)]">
                     “Das Leben ist nicht das, was es sein sollte. Es ist, was es ist. Die Art und Weise, damit umzugehen, macht den Unterschied.”
                 </h1>
-                <p id="quote__author" class="mt-4 text-center lg:text-right">*Virginia Satir, Psychotherapeutin und Familientherapeutin</p>
+                <p id="quote__author" class="mt-4 text-center lg:text-right  text-[var(--text-800)]">*Virginia Satir, Psychotherapeutin und Familientherapeutin</p>
             </div>
         </section>      
     </main>
@@ -18,17 +18,9 @@ import LayoutSite from '@layouts/LayoutSite.astro'
 
 <style>
     #quote__text {
-        font-size: clamp(2rem, 2rem + 1.75vi, 4rem);
+        font-size: clamp(1.5rem, 1rem + 1.75vi, 4rem);
     }
     #quote__author {
         font-size: clamp(.75rem, .75rem + .75vi, 1.5rem);
     }
-    main {
-        background-image: url(../../../assets/backgrounds/grainy-bg-F7F0EA0201.webp);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 100%;
-        height: 100%;
-        }
 </style>
