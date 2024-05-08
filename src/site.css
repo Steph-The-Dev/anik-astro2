@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] {
+  /* fix alpine js flicker on load */
+  display: none;
+}
+
 @layer base {
   :root {
     --slider-bg-text: 196 175 32;
