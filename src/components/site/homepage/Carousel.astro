@@ -1,85 +1,134 @@
 ---
-import LayoutSite from '@layouts/LayoutSite.astro'
-import {Image} from 'astro:assets'
-import Pencil from '@images/pencil.webp'
-import GirlWithRedHat from '@images/girl-with-red-hat.webp'
-import Graffiti from '@images/graffiti.webp'
-import Batman from '@images/batman.webp'
-
+import LayoutSite from "@layouts/LayoutSite.astro";
+import { Image } from "astro:assets";
+import Pencil from "@images/pencil.webp";
+import GirlWithRedHat from "@images/girl-with-red-hat.webp";
+import Graffiti from "@images/graffiti.webp";
+import Batman from "@images/batman.webp";
 ---
 
 <!-- Using the great slider by Swiffy: https://swiffyslider.com/ -->
-
 <LayoutSite>
-    <main class="bg-[var(--background-50)] flex items-center md:h-[750px] h-[600px] px-2 md:px-12 pt-6 md:pt-12">
-        <div class="h-full py-4 swiffy-slider slider-item-reveal slider-item-ratio-1x1 slider-nav-visible slider-nav-autoplay slider-nav-autopause" data-slider-nav-autoplay-interval="3000">
-            <ul class="slider-container">
-                <div class="relative slider-item">
-                    <Image class="absolute" src={Batman} alt="a batman" style="max-width: 100%;height: 100%;object-fit:cover;" />
-                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full text-[var(--text-100)]" style="background: rgba(195, 159, 111 , 0.9);">
-                        <div class="flex flex-col items-center content-center justify-center h-full font-bold leading-tight text-center carousel__text">
-                            <h2>Sie haben eine lebhafte Familie und keine ruhige Minute?</h2>
-                            <h2 class="mt-2 lg:mt-8">Sie machen sich Sorgen um ihre Kinder?</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative slider-item">
-                    <Image class="absolute" src={Pencil} alt="a few pencils" style="max-width: 100%;height: 100%;object-fit:cover;" />
-                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 carousel__text lg:right-0 lg:w-1/3 h-1/3 lg:h-full text-[var(--text-100)]" style="background: rgba(195, 159, 111 , 0.9);">
-                        <h2 class="font-bold leading-tight text-center text-wrap">Neuorientierung beim Beruf oder Ausbildung</h2>
-                    </div>
-                </div>
-
-                <div class="relative slider-item">
-                    <Image class="absolute" src={GirlWithRedHat} alt="a girl with a red hat" style="max-width: 100%;height: 100%;object-fit:cover;" />
-                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full text-[var(--text-100)]" style="background: rgba(195, 159, 111 , 0.9);">
-                        <div class="flex flex-col items-center content-center justify-center h-full font-bold leading-tight text-center carousel__text">
-                            <h2>Sie möchten sich besser abgrenzen können?</h2>
-                            <h2 class="mt-2 lg:mt-8">Sie haben einen Konflikt und wissen nicht wie Sie mit diesem umgehen sollen?</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative slider-item">
-                    <Image class="absolute" src={Graffiti} alt="a graffiti" style="max-width: 100%;height: 100%;object-fit:cover;" />
-                    <div class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full text-[var(--text-100)]" style="background: rgba(195, 159, 111 , 0.9);">
-                            <div class="flex flex-col items-center content-center justify-center h-full font-bold leading-tight text-center carousel__text">
-                                <h2>Sie möchten etwas in Ihrem Leben verändern?</h2>
-                                <h2 class="mt-2 lg:mt-8">Sie geraten immer wieder in ähnliche Muster und würden dies gern
-                                    ändern?</h2>
-                            </div>
-                    </div>
-                </div>
-
-            </ul>
-        
-            <button type="button" class="slider-nav"></button>
-            <button type="button" class="slider-nav slider-nav-next"></button>
-        
-            <div class="slider-indicators">
-                <button class="active"></button>
-                <button></button>
-                <button></button>
-                <button></button>
+  <main
+    class="bg-[var(--secondary-200)] flex items-center md:h-[750px] h-[600px] px-2 md:px-12 py-6 md:py-12"
+  >
+    <div
+      class="h-full py-4 swiffy-slider slider-item-reveal slider-item-ratio-1x1 slider-nav-visible slider-nav-autoplay slider-nav-autopause"
+      data-slider-nav-autoplay-interval="3000"
+    >
+      <ul class="slider-container">
+        <div class="relative slider-item">
+          <Image
+            class="absolute"
+            src={Batman}
+            alt="a batman"
+            style="max-width: 100%;height: 100%;object-fit:cover;"
+          />
+          <div
+            class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full text-[var(--text-100)]"
+            style="background: rgba(195, 159, 111 , 0.9);"
+          >
+            <div
+              class="flex flex-col items-center content-center justify-center h-full font-bold text-center carousel__text"
+            >
+              <h2>Sie haben eine lebhafte Familie und keine ruhige Minute?</h2>
+              <h2 class="mt-2 lg:mt-8">
+                Sie machen sich Sorgen um ihre Kinder?
+              </h2>
             </div>
+          </div>
         </div>
-    </main>
+
+        <div class="relative slider-item">
+          <Image
+            class="absolute"
+            src={Pencil}
+            alt="a few pencils"
+            style="max-width: 100%;height: 100%;object-fit:cover;"
+          />
+          <div
+            class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 carousel__text lg:right-0 lg:w-1/3 h-1/3 lg:h-full text-[var(--text-100)]"
+            style="background: rgba(195, 159, 111 , 0.9);"
+          >
+            <h2 class="font-bold leading-tight text-center text-wrap">
+              Neuorientierung beim Beruf oder Ausbildung
+            </h2>
+          </div>
+        </div>
+
+        <div class="relative slider-item">
+          <Image
+            class="absolute"
+            src={GirlWithRedHat}
+            alt="a girl with a red hat"
+            style="max-width: 100%;height: 100%;object-fit:cover;"
+          />
+          <div
+            class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full text-[var(--text-100)]"
+            style="background: rgba(195, 159, 111 , 0.9);"
+          >
+            <div
+              class="flex flex-col items-center content-center justify-center h-full font-bold leading-tight text-center carousel__text"
+            >
+              <h2>Sie möchten sich besser abgrenzen können?</h2>
+              <h2 class="mt-2 lg:mt-8">
+                Sie haben einen Konflikt und wissen nicht wie Sie mit diesem
+                umgehen sollen?
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative slider-item">
+          <Image
+            class="absolute"
+            src={Graffiti}
+            alt="a graffiti"
+            style="max-width: 100%;height: 100%;object-fit:cover;"
+          />
+          <div
+            class="absolute bottom-0 flex items-center content-center justify-center w-full px-4 lg:right-0 lg:w-1/3 h-1/3 lg:h-full text-[var(--text-100)]"
+            style="background: rgba(195, 159, 111 , 0.9);"
+          >
+            <div
+              class="flex flex-col items-center content-center justify-center h-full font-bold leading-tight text-center carousel__text"
+            >
+              <h2>Sie möchten etwas in Ihrem Leben verändern?</h2>
+              <h2 class="mt-2 lg:mt-8">
+                Sie geraten immer wieder in ähnliche Muster und würden dies gern
+                ändern?
+              </h2>
+            </div>
+          </div>
+        </div>
+      </ul>
+
+      <button type="button" class="slider-nav"></button>
+      <button type="button" class="slider-nav slider-nav-next"></button>
+
+      <div class="slider-indicators">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
+        <button></button>
+      </div>
+    </div>
+  </main>
 </LayoutSite>
 
-<script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
-
-
+<script
+  src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+  crossorigin="anonymous"
+  defer></script>
 
 <style>
-    .carousel__text {
-        font-size: clamp(1rem, 1.5rem + 1vi, 4rem);
-    }
+  .carousel__text {
+    font-size: clamp(1rem, 1.5rem + 1vi, 4rem);
+  }
 
-    @media screen and (max-width: 640px) {
-       .carousel__text {
-            font-size: clamp(1rem, 1rem + .75vi, 2.5rem);
-        }
-        
+  @media screen and (max-width: 640px) {
+    .carousel__text {
+      font-size: clamp(1rem, 1rem + 0.75vi, 2.5rem);
     }
+  }
 </style>

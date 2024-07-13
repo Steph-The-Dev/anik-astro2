@@ -1,22 +1,29 @@
 ---
-const { title = "Anik von Rohr | Systemische Beratung" } = Astro.props
-import '../site.css'
-
+const { title = "Anik von Rohr | Systemische Beratung" } = Astro.props;
+import "../site.css";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <html lang="de">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="bg-[var(--background-50)]">
-		<div>
-			<slot />
-		</div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&display=swap");
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body class="bg-[var(--background-50)]">
+    <div>
+      <slot />
+    </div>
+  </body>
 </html>
-

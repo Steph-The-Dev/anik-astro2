@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cormorant:700|Proza%20Libre:400');
+@import url("https://fonts.googleapis.com/css?family=Cormorant:700|Proza%20Libre:400");
 
 @tailwind base;
 @tailwind components;
@@ -137,7 +137,8 @@
 }
 
 body {
-  font-family: 'Proza Libre';
+  font-family: "Proza Libre";
+  /* font-family: 'Proza Libre'; */
   /* font-weight: 400; */
   /* background-color: var(--secondary-100); */
 }
@@ -147,6 +148,6 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Cormorant';
+  font-family: "Andada Pro";
   /* font-weight: 700; */
 }

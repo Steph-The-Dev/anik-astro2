@@ -1,47 +1,75 @@
 ---
-import LayoutSite from '@layouts/LayoutSite.astro';
+import LayoutSite from "@layouts/LayoutSite.astro";
 ---
 
+<LayoutSite title="Anik von Rohr - Systemische Beratung | Impressum">
+  <main class="h-screen bg-[var(--secondary-600)]">
+    <section
+      class="flex flex-col justify-center h-full py-12 max-w-6xl md:max-w-[80%] mx-auto items-left text-[var(--text-100)]"
+    >
+      <div class="">
+        <a
+          href="/"
+          class="max-w-6xl md:max-w-[80%] flex gap-6 back-arrow text-[var(--text-100)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.03 3.97a.75.75 0 010 1.06l-6.22 6.22H21a.75.75 0 010 1.5H4.81l6.22 6.22a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span>Zurück zur Hauptseite</span>
+        </a>
+      </div>
+      <div class="place-content-center grow">
+        <div class="pb-12">
+          <h1 class="text-3xl font-bold font-body">Impressum</h1>
+          <h2 class="font-body">Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+        </div>
 
-<LayoutSite title="Anik von Rohr - Systemische Beratung | Impressum" >
-    <main class="h-screen bg-[var(--secondary-600)]">
-        <section class="flex flex-col justify-center h-full py-12 max-w-6xl md:max-w-[80%] mx-auto items-left text-[var(--text-100)]">
-            <div class="">
-                <a href="/" class="max-w-6xl md:max-w-[80%] flex gap-6 back-arrow text-[var(--text-100)]">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                      <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 010 1.06l-6.22 6.22H21a.75.75 0 010 1.5H4.81l6.22 6.22a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z" clip-rule="evenodd" />
-                    </svg>
-                    <span>Zurück zur Hauptseite</span>
-                  </a>
-            </div>
-            <div class="place-content-center grow ">
+        <p class="pb-6 text-xl">
+          Anik von Rohr<br />
+          Systemische Beratung<br />
+          Barbarastrasse 64<br />
+          50735 K&ouml;ln
+        </p>
 
-                <div class="pb-12 ">
-                    <h1 class="text-3xl font-bold font-body">Impressum</h1>
-                    <h2 class="font-body">Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
-                </div>
-    
-                <p class="pb-6 text-xl">Anik von Rohr<br />
-                Systemische Beratung<br />
-                Barbarastrasse 64<br />
-                50735 K&ouml;ln</p>
-    
-                <div class="pb-12 text-xl">
-    
-                    <h2  class="font-body">Kontakt</h2>
-                    <p>Telefon: +49 1514 7102879<br />
-                    E-Mail: hallo@anikvonrohr.de</p>
-                </div>
-    
-                <h2 class="text-xl font-body">EU-Streitschlichtung</h2>
-                <p class="mb-3">Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br /> Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
-    
-                <h2  class="text-xl font-body">Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
-                <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-    
-                <p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>
-            </div>
-        </section>
+        <div class="pb-12 text-xl">
+          <h2 class="font-body">Kontakt</h2>
+          <p>
+            Telefon: +49 1514 7102879<br />
+            E-Mail: hallo@anikvonrohr.de
+          </p>
+        </div>
 
-    </main>
+        <h2 class="text-xl font-body">EU-Streitschlichtung</h2>
+        <p class="mb-3">
+          Die Europ&auml;ische Kommission stellt eine Plattform zur
+          Online-Streitbeilegung (OS) bereit: <a
+            href="https://ec.europa.eu/consumers/odr/"
+            target="_blank"
+            rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a
+          >.<br /> Unsere E-Mail-Adresse finden Sie oben im Impressum.
+        </p>
+
+        <h2 class="text-xl font-body">
+          Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle
+        </h2>
+        <p>
+          Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren
+          vor einer Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+
+        <p>
+          Quelle: <a href="https://www.e-recht24.de"
+            >https://www.e-recht24.de</a>
+        </p>
+      </div>
+    </section>
+  </main>
 </LayoutSite>
