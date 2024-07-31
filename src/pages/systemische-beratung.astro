@@ -2,39 +2,56 @@
 import LayoutSite from "@layouts/LayoutSite.astro";
 import Navbar from "@components/site/common/Navbar.astro";
 import Footer from "@components/site/common/Footer.astro";
+import { Image } from "astro:assets";
+
+// images
+import Happy from "@images/Happy_Bruce_Galpin_2000px.webp";
 ---
 
 <LayoutSite title="Anik von Rohr - Systemische Beratung">
   <Navbar />
-  <main class="h-full bg-[var(--background-50)]">
+  <main class="h-full text-[var(--text-800)] bg-[var(--background-50)] p-12 max-w-6xl md:max-w-[80%] mx-auto">
     <div class="h-[60px] lg:h-[100px]"></div>
 
     <section
-      class="flex flex-col justify-center h-full p-12 max-w-6xl md:max-w-[80%] mx-auto items-left text-[var(--text-800)]"
+      class="grid xl:grid-cols-[3fr_2fr] grid-cols-1 gap-8 auto-rows-max"
     >
-      <h1 class="text-3xl">Was ist systemische Beratung?</h1>
-      <h2 class="mb-4 text-2xl">Was bedeutet "systemisch"?</h2>
-      <p class="mb-2 text-xl">
-        Wir sind immer auch "Teil eines Ganzen", denn aus der Systemischen Sicht
-        ist unser Erleben und Verhalten nicht isoliert zu betrachten, sondern in
-        der Dynamik von wechselseitigen Beziehungen zur Umwelt.
-      </p>
-      <p class="mb-2 text-xl">
-        Das System eines Klienten, einer Klientin ist zum Beispiel die
-        Ursprungsfamilie, die aktuelle Beziehung, die Familie, das Arbeitsumfeld
-        oder die Schule/Universität sowie auch die Freundschaften oder das
-        Vereinsleben. Verändert sich etwas in einem dieser Bereiche, kann sich
-        das positiv auf alle anderen Bereiche auswirken.
-      </p>
-      <p class="mb-2 text-xl">
-        In der systemische Beratung biete ich Ihnen fachliche Hilfe "von außen"
-        und begleite sie aufmerksam und kreativ individuelle neue und hilfreiche
-        Lösungen zu finden!
-      </p>
-      <p class="mb-2 text-xl">
-        Dabei ist systemisches Arbeiten stets zukunfts-,lösungs- und
-        ressourcenorientiert.
-      </p>
+      <div class="h-full p-8 bg-[var(--secondary-100)]  place-content-center leading-12 text-wrapper">
+        <div>
+
+          <h1 class="text-3xl 2xl:text-4xl">Was ist systemische Beratung?</h1>
+          <h2 class="mb-4 text-2xl 2xl:text-3xl">Was bedeutet "systemisch"?</h2>
+          <div class="grid gap-8 text-xl 2xl:text-2xl">
+  
+            <p class="">
+              Wir sind immer auch "Teil eines Ganzen", denn aus der Systemischen Sicht
+              ist unser Erleben und Verhalten nicht isoliert zu betrachten, sondern in
+              der Dynamik von wechselseitigen Beziehungen zur Umwelt.
+            </p>
+            <p class="">
+              Das System eines Klienten, einer Klientin ist zum Beispiel die
+              Ursprungsfamilie, die aktuelle Beziehung, die Familie, das Arbeitsumfeld
+              oder die Schule/Universität sowie auch die Freundschaften oder das
+              Vereinsleben. Verändert sich etwas in einem dieser Bereiche, kann sich
+              das positiv auf alle anderen Bereiche auswirken.
+            </p>
+            <p class="">
+              In der systemische Beratung biete ich Ihnen fachliche Hilfe "von außen"
+              und begleite sie aufmerksam und kreativ individuelle neue und hilfreiche
+              Lösungen zu finden!
+            </p>
+            <p class="">
+              Dabei ist systemisches Arbeiten stets zukunfts-,lösungs- und
+              ressourcenorientiert.
+            </p>
+        </div>
+        </div>
+      </div>
+      
+      <div class="flex overflow-hidden border-2 image-wrapper ">
+          <Image src={Happy} alt="Happy Bruce Galpin" class="flex-1 object-cover object-center w-full h-full" />
+        </div>
+    </section>
 
       <h2 class="mb-4 text-2xl">Anliegen für eine Beratung können sein:</h2>
       <ul class="mb-2 text-xl">
@@ -57,56 +74,76 @@ import Footer from "@components/site/common/Footer.astro";
           über Autismus in der Familie reden und Hilfestellungen herausarbeiten
         </li>
         <li>bei beruflichen Veränderungswünschen</li>
-
-        <h2 class="mb-4 text-2xl">
-          Wichtige übergeordnete Ziele Systemischer Praxis sind:
-        </h2>
-        <ul class="mb-2 text-xl">
-          <li>Erweiterung von Handlungsmöglichkeiten</li>
-          <li>Erwerb sozialer und psychologischer Kompetenzen</li>
-          <li>Entwicklung neuer Perspektiven</li>
-          <li>Bearbeitung spezifischer Entscheidungsfragen</li>
-          <li>Bewältigung persönlicher Krisen</li>
-        </ul>
-
-        <h2 class="mb-4 text-2xl">Der erste Schritt</h2>
-        <p class="mb-2 text-xl">
-          Sie schicken mir eine E-Mail oder rufen mich gerne auch unter Tel.:
-          xxxxxxx an. Gemeinsam besprechen wir das weitere Vorgehen.
-        </p>
-
-        <h2 class="mb-4 text-2xl">
-          Wie lange dauert eine Systemische Beratung?
-        </h2>
-        <p class="mb-2 text-xl">
-          Im Verlauf der Beratung werden wir immer wieder gemeinsam prüfen, wie
-          Sie vorankommen und wie viel Beratung sinnvoll ist. Daher werden wir
-          die Anzahl und den Abstand der Beratungssitzungen nach Ihrer
-          persönlichen Einschätzung immer wieder neu festlegen.
-        </p>
-        <p class="mb-2 text-xl">
-          Eine Sitzung umfasst in der Regel 60 Min. für Einzelne und 90 Min. für
-          Paare. Am Anfang einer Beratung haben sich auch längere Sitzungen
-          bewährt. Oft sind ca. 6-8 Sitzungen ausreichend, manchmal hilft aber
-          auch schon ein einmaliger "Blick von außen", um weiter zukommen.
-        </p>
-
-        <h2 class="mb-4 text-2xl">Meine Schwerpunkte:</h2>
-        <p class="mb-2 text-xl">
-          meine Schwerpunkte liegen in der Einzel - und in der Paarberatung.
-          Nehmen sie für ein Vorgespräch gerne Kontakt mit mir auf. Sie dürfen
-          auch sehr gerne mit mir Kontakt aufnehmen, wenn Sie noch Fragen haben
-          und sich nicht sicher sind.
-        </p>
-
-        <h2 class="mb-4 text-2xl">Terminvereinbarung:</h2>
-        <p class="mb-2 text-xl">
-          Den vereinbarten Termin für die erste Beratungssitzung bestätige ich
-          Ihnen in Textform per E-Mail einschließlich des vereinbarten Honoras
-          und der zugrunde liegenden Allgemeinen Geschäftsbedingungen.
-        </p>
       </ul>
+
+      <h2 class="mb-4 text-2xl">
+        Wichtige übergeordnete Ziele Systemischer Praxis sind:
+      </h2>
+      <ul class="mb-2 text-xl">
+        <li>Erweiterung von Handlungsmöglichkeiten</li>
+        <li>Erwerb sozialer und psychologischer Kompetenzen</li>
+        <li>Entwicklung neuer Perspektiven</li>
+        <li>Bearbeitung spezifischer Entscheidungsfragen</li>
+        <li>Bewältigung persönlicher Krisen</li>
+      </ul>
+
+      <h2 class="mb-4 text-2xl">Der erste Schritt</h2>
+      <p class="mb-2 text-xl">
+        Sie schicken mir eine E-Mail oder rufen mich gerne auch unter Tel.:
+        xxxxxxx an. Gemeinsam besprechen wir das weitere Vorgehen.
+      </p>
+
+      <h2 class="mb-4 text-2xl">
+        Wie lange dauert eine Systemische Beratung?
+      </h2>
+      <p class="mb-2 text-xl">
+        Im Verlauf der Beratung werden wir immer wieder gemeinsam prüfen, wie
+        Sie vorankommen und wie viel Beratung sinnvoll ist. Daher werden wir
+        die Anzahl und den Abstand der Beratungssitzungen nach Ihrer
+        persönlichen Einschätzung immer wieder neu festlegen.
+      </p>
+      <p class="mb-2 text-xl">
+        Eine Sitzung umfasst in der Regel 60 Min. für Einzelne und 90 Min. für
+        Paare. Am Anfang einer Beratung haben sich auch längere Sitzungen
+        bewährt. Oft sind ca. 6-8 Sitzungen ausreichend, manchmal hilft aber
+        auch schon ein einmaliger "Blick von außen", um weiter zukommen.
+      </p>
+
+      <h2 class="mb-4 text-2xl">Meine Schwerpunkte:</h2>
+      <p class="mb-2 text-xl">
+        meine Schwerpunkte liegen in der Einzel - und in der Paarberatung.
+        Nehmen sie für ein Vorgespräch gerne Kontakt mit mir auf. Sie dürfen
+        auch sehr gerne mit mir Kontakt aufnehmen, wenn Sie noch Fragen haben
+        und sich nicht sicher sind.
+      </p>
+
+      <h2 class="mb-4 text-2xl">Terminvereinbarung:</h2>
+      <p class="mb-2 text-xl">
+        Den vereinbarten Termin für die erste Beratungssitzung bestätige ich
+        Ihnen in Textform per E-Mail einschließlich des vereinbarten Honoras
+        und der zugrunde liegenden Allgemeinen Geschäftsbedingungen.
+      </p>
     </section>
 </main>
 <Footer bgColor="bg-[var(--primary-200)]" />
 </LayoutSite>
+<!-- 
+<script>
+window.addEventListener('load', function() {
+  function updateWrapperHeight() {
+  // Get the height of the text-wrapper div
+  let textWrapper = document.querySelector('.text-wrapper') as HTMLDivElement;
+  let textWrapperHeight = textWrapper.offsetHeight;
+  console.log(textWrapperHeight);
+
+  // Apply the height to the image-wrapper div
+  let imageWrapper = document.querySelector('.image-wrapper') as HTMLDivElement;
+  imageWrapper.style.height = textWrapperHeight + 'px';
+  console.log(imageWrapper.style.height)
+  }
+
+  updateWrapperHeight();
+  window.addEventListener('resize', updateWrapperHeight);
+});
+
+</script> -->
