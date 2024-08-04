@@ -6,18 +6,19 @@ import { Image } from "astro:assets";
 
 // images
 import Happy from "@images/Happy_Bruce_Galpin_2000px.webp";
+import Schaukeln from "@images/Schaukeln Noah Silliman on unsplash-2000px.webp";
 ---
 
 <LayoutSite title="Anik von Rohr - Systemische Beratung">
   <Navbar />
-  <main class="h-full text-[var(--text-800)] bg-[var(--background-50)] p-12 max-w-6xl md:max-w-[80%] mx-auto">
+  <main class="h-full text-[var(--text-800)] bg-[var(--background-50)] p-12 md:w-5/6 max-w-[1600px] mx-auto gap-6">
     <div class="h-[60px] lg:h-[100px]"></div>
 
     <section
-      class="grid xl:grid-cols-[3fr_2fr] grid-cols-1 gap-8 auto-rows-max"
+      class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[3fr_2fr] grid-cols-1 gap-8 overflow-hidden"
     >
-      <div class="h-full p-8 bg-[var(--secondary-100)]  place-content-center leading-12 text-wrapper">
-        <div>
+      <div class="p-8 bg-[var(--primary-100)]  place-content-center leading-12 text-wrapper">
+        <div class="">
 
           <h1 class="text-3xl 2xl:text-4xl">Was ist systemische Beratung?</h1>
           <h2 class="mb-4 text-2xl 2xl:text-3xl">Was bedeutet "systemisch"?</h2>
@@ -48,13 +49,19 @@ import Happy from "@images/Happy_Bruce_Galpin_2000px.webp";
         </div>
       </div>
       
-      <div class="flex overflow-hidden border-2 image-wrapper ">
+      <div class="flex overflow-hidden border-2 image-wrapper min-h-[55vh]">
           <Image src={Happy} alt="Happy Bruce Galpin" class="flex-1 object-cover object-center w-full h-full" />
         </div>
     </section>
 
-      <h2 class="mb-4 text-2xl">Anliegen für eine Beratung können sein:</h2>
-      <ul class="mb-2 text-xl">
+    <section class="xl:grid xl:grid-cols-[2fr_3fr] grid-cols-1 flex flex-col-reverse gap-8 mt-6"
+    >
+    <div class="flex overflow-hidden image-wrapper min-h-[30vw]">
+      <Image src={Schaukeln} alt="Happy Bruce Galpin" class="flex-1 object-cover object-center " />
+    </div>
+    <div class="p-8 bg-[var(--primary-300)] place-content-center leading-12 text-wrapper">
+      <h2 class="mb-4 text-2xl 2xl:text-3xl">Anliegen für eine Beratung können sein:</h2>
+      <ul class="grid gap-3 pt-4 text-xl list-disc list-inside 2xl:text-2xl">
         <li>mit schwierigen Veränderungen im Leben besser klar zu kommen</li>
         <li>Krisen meistern und für Veränderungen nutzen</li>
         <li>
@@ -75,7 +82,9 @@ import Happy from "@images/Happy_Bruce_Galpin_2000px.webp";
         </li>
         <li>bei beruflichen Veränderungswünschen</li>
       </ul>
-
+      </div>
+    </section>
+    
       <h2 class="mb-4 text-2xl">
         Wichtige übergeordnete Ziele Systemischer Praxis sind:
       </h2>
@@ -120,13 +129,15 @@ import Happy from "@images/Happy_Bruce_Galpin_2000px.webp";
       <h2 class="mb-4 text-2xl">Terminvereinbarung:</h2>
       <p class="mb-2 text-xl">
         Den vereinbarten Termin für die erste Beratungssitzung bestätige ich
-        Ihnen in Textform per E-Mail einschließlich des vereinbarten Honoras
+        Ihnen in Textform per E-Mail einschließlich des vereinbarten Honorars
         und der zugrunde liegenden Allgemeinen Geschäftsbedingungen.
       </p>
     </section>
 </main>
+
 <Footer bgColor="bg-[var(--primary-200)]" />
 </LayoutSite>
+
 <!-- 
 <script>
 window.addEventListener('load', function() {
