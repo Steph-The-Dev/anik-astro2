@@ -7,6 +7,7 @@ import { Image } from "astro:assets";
 // images
 import Happy from "@images/Happy_Bruce_Galpin_2000px.webp";
 import Schaukeln from "@images/Schaukeln Noah Silliman on unsplash-2000px.webp";
+import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
 ---
 
 <LayoutSite title="Anik von Rohr - Systemische Beratung">
@@ -49,7 +50,7 @@ import Schaukeln from "@images/Schaukeln Noah Silliman on unsplash-2000px.webp";
         </div>
       </div>
       
-      <div class="flex overflow-hidden border-2 image-wrapper min-h-[55vh]">
+      <div class="flex overflow-hidden image-wrapper min-h-[55vh]">
           <Image src={Happy} alt="Happy Bruce Galpin" class="flex-1 object-cover object-center w-full h-full" />
         </div>
     </section>
@@ -57,7 +58,7 @@ import Schaukeln from "@images/Schaukeln Noah Silliman on unsplash-2000px.webp";
     <section class="xl:grid xl:grid-cols-[2fr_3fr] grid-cols-1 flex flex-col-reverse gap-8 mt-6"
     >
     <div class="flex overflow-hidden image-wrapper min-h-[30vw]">
-      <Image src={Schaukeln} alt="Happy Bruce Galpin" class="flex-1 object-cover object-center " />
+      <Image src={Schaukeln} alt="Happy Bruce Galpin" class="flex-1 block object-cover object-center w-full h-full" />
     </div>
     <div class="p-8 bg-[var(--primary-300)] place-content-center leading-12 text-wrapper">
       <h2 class="mb-4 text-2xl 2xl:text-3xl">Anliegen für eine Beratung können sein:</h2>
@@ -85,16 +86,29 @@ import Schaukeln from "@images/Schaukeln Noah Silliman on unsplash-2000px.webp";
       </div>
     </section>
     
-      <h2 class="mb-4 text-2xl">
-        Wichtige übergeordnete Ziele Systemischer Praxis sind:
-      </h2>
-      <ul class="mb-2 text-xl">
-        <li>Erweiterung von Handlungsmöglichkeiten</li>
-        <li>Erwerb sozialer und psychologischer Kompetenzen</li>
-        <li>Entwicklung neuer Perspektiven</li>
-        <li>Bearbeitung spezifischer Entscheidungsfragen</li>
-        <li>Bewältigung persönlicher Krisen</li>
-      </ul>
+
+    <section
+      class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[3fr_2fr] grid-cols-1 gap-8 overflow-hidden mt-6"
+    >
+      <div class="p-8 bg-[var(--primary-100)] place-content-center leading-12 text-wrapper">
+        <div>
+
+            <h2 class="mb-4 text-2xl 2xl:text-3xl"  >
+              Wichtige übergeordnete Ziele Systemischer Praxis sind:
+            </h2>
+            <ul class="grid gap-3 pt-4 text-xl list-disc list-inside 2xl:text-2xl">
+              <li>Erweiterung von Handlungsmöglichkeiten</li>
+              <li>Erwerb sozialer und psychologischer Kompetenzen</li>
+              <li>Entwicklung neuer Perspektiven</li>
+              <li>Bearbeitung spezifischer Entscheidungsfragen</li>
+              <li>Bewältigung persönlicher Krisen</li>
+            </ul>
+          </div>
+        </div>
+      <div class="flex overflow-hidden image-wrapper min-h-[200px] xl:max-h-[40vh]">
+        <Image src={Together} alt="Happy Bruce Galpin" class="flex-1 block object-cover object-center w-full h-full" />
+      </div>
+    </section>
 
       <h2 class="mb-4 text-2xl">Der erste Schritt</h2>
       <p class="mb-2 text-xl">
