@@ -12,11 +12,11 @@ import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
 
 <LayoutSite title="Anik von Rohr - Systemische Beratung">
   <Navbar />
-  <main class="h-full text-[var(--text-800)] bg-[var(--background-50)] p-12 md:w-5/6 max-w-[1600px] mx-auto gap-6">
+  <main class="h-full text-[var(--text-800)] bg-[var(--background-50)] md:p-12 md:w-5/6 max-w-[1600px] mx-auto gap-6">
     <div class="h-[60px] lg:h-[100px]"></div>
 
     <section
-      class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[3fr_2fr] grid-cols-1 gap-8 overflow-hidden"
+      class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[3fr_2fr] grid-cols-1 md:gap-8 overflow-hidden"
     >
       <div class="p-8 bg-[var(--primary-100)]  place-content-center leading-12 text-wrapper">
         <div class="">
@@ -55,7 +55,7 @@ import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
         </div>
     </section>
 
-    <section class="xl:grid xl:grid-cols-[2fr_3fr] grid-cols-1 flex flex-col-reverse gap-8 mt-6"
+    <section class="xl:grid xl:grid-cols-[2fr_3fr] grid-cols-1 flex flex-col-reverse md:gap-8 mt-6"
     >
     <div class="flex overflow-hidden image-wrapper min-h-[30vw]">
       <Image src={Schaukeln} alt="Happy Bruce Galpin" class="flex-1 block object-cover object-center w-full h-full" />
@@ -88,7 +88,7 @@ import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
     
 
     <section
-      class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[3fr_2fr] grid-cols-1 gap-8 overflow-hidden mt-6"
+      class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[3fr_2fr] grid-cols-1 md:gap-8 overflow-hidden mt-6"
     >
       <div class="p-8 bg-[var(--primary-100)] place-content-center leading-12 text-wrapper">
         <div>
@@ -105,12 +105,17 @@ import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
             </ul>
           </div>
         </div>
-      <div class="flex overflow-hidden image-wrapper min-h-[200px] xl:max-h-[40vh]">
+      <div class="flex overflow-hidden image-wrapper min-h-[200px] xl:min-h-[40vh]">
         <Image src={Together} alt="Happy Bruce Galpin" class="flex-1 block object-cover object-center w-full h-full" />
       </div>
     </section>
 
-      <h2 class="mb-4 text-2xl">Der erste Schritt</h2>
+    <section
+    class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[3fr_2fr] grid-cols-1 md:gap-8 overflow-hidden mt-6"
+  >
+    <div class="p-8 bg-[var(--primary-100)] place-content-center leading-12 text-wrapper">
+
+      <h2 class="mb-4 text-2xl ">Der erste Schritt</h2>
       <p class="mb-2 text-xl">
         Sie schicken mir eine E-Mail oder rufen mich gerne auch unter Tel.:
         xxxxxxx an. Gemeinsam besprechen wir das weitere Vorgehen.
@@ -146,6 +151,7 @@ import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
         Ihnen in Textform per E-Mail einschließlich des vereinbarten Honorars
         und der zugrunde liegenden Allgemeinen Geschäftsbedingungen.
       </p>
+      </div>
     </section>
 </main>
 
