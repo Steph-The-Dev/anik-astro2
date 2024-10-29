@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import Logo from "@images/202404-anik-logo.svg";
+import Logo from "@images/anik-logo.webp";
 ---
 
 <nav id="navbar" x-data="{ open: false }" class="fixed top-0 z-50 w-full">
@@ -73,7 +73,7 @@ import Logo from "@images/202404-anik-logo.svg";
     x-show="open"
     @click.away="open = false"
     @click="open = false"
-    class="px-12 text-right flex flex-1 flex-col justify-end text-[var(--primary-700)] bg-[var(--primary-200)] w-full right-0 font-body text-lg"
+    class="pr-5 text-right flex flex-1 flex-col justify-end text-[var(--primary-700)] bg-[var(--primary-200)] w-full right-0 font-body text-lg"
   >
     <a href="/systemische-beratung" class="">Systemische Beratung</a>
     <a href="/ueber-mich" class="">Über mich</a>
