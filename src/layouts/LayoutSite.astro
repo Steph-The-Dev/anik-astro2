@@ -1,7 +1,7 @@
 ---
 const { title = "Anik von Rohr | Systemische Beratung" } = Astro.props;
 import "../site.css";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <html lang="de">
@@ -19,7 +19,7 @@ import { ViewTransitions } from "astro:transitions";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="bg-[var(--background-50)]">
     <div>
