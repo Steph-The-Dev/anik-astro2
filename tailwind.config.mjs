@@ -10,17 +10,16 @@ export default {
         "2xl": "1.777rem",
         "3xl": "2.369rem",
         "4xl": "3.158rem",
-        "5xl": "4.210rem",
+        "5xl": "4.210rem"
       },
       fontFamily: {
-        // heading: 'Cormorant',
-        heading: "Andada Pro",
-        body: "Proza Libre",
+        heading: "Playfair Display",
+        body: "Lato"
       },
       fontWeight: {
         thin: "100",
         normal: "400",
-        bold: "700",
+        bold: "700"
       },
       colors: {
         "site-bg-main": "var(--background-200)",
@@ -38,7 +37,7 @@ export default {
           700: "var(--text-700)",
           800: "var(--text-800)",
           900: "var(--text-900)",
-          950: "var(--text-950)",
+          950: "var(--text-950)"
         },
         background: {
           50: "var(--background-50)",
@@ -51,7 +50,7 @@ export default {
           700: "var(--background-700)",
           800: "var(--background-800)",
           900: "var(--background-900)",
-          950: "var(--background-950)",
+          950: "var(--background-950)"
         },
         primary: {
           50: "var(--primary-50)",
@@ -64,7 +63,7 @@ export default {
           700: "var(--primary-700)",
           800: "var(--primary-800)",
           900: "var(--primary-900)",
-          950: "var(--primary-950)",
+          950: "var(--primary-950)"
         },
         secondary: {
           50: "var(--secondary-50)",
@@ -77,7 +76,7 @@ export default {
           700: "var(--secondary-700)",
           800: "var(--secondary-800)",
           900: "var(--secondary-900)",
-          950: "var(--secondary-950)",
+          950: "var(--secondary-950)"
         },
         accent: {
           50: "var(--accent-50)",
@@ -90,12 +89,12 @@ export default {
           700: "var(--accent-700)",
           800: "var(--accent-800)",
           900: "var(--accent-900)",
-          950: "var(--accent-950)",
+          950: "var(--accent-950)"
         },
-        "nav-bg": "var(--background-200)",
+        "nav-bg": "var(--background-200)"
       },
       plugins: [],
-      colors: {},
-    },
-  },
+      colors: {}
+    }
+  }
 };

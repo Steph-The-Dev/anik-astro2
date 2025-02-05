@@ -1,6 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Cormorant:700|Proza%20Libre:400");
-@import url("https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
 @import "tailwindcss";
 
 [x-cloak] {
@@ -206,5 +205,5 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Andada Pro";
+  font-family: "Playfair Display";
 }
