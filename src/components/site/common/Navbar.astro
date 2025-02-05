@@ -5,33 +5,29 @@ import Logo from "@images/20241030-anik-logo.webp";
 
 <nav id="navbar" x-data="{ open: false }" class="fixed top-0 z-50 w-full">
   <div
-    class="flex items-center justify-between h-full py-3 px-6 lg:px-12 mx-auto bg-[--primary-200]"
+    class="flex items-center justify-between h-full py-3 px-6 lg:px-12 mx-auto bg-[var(--bone-500)]"
   >
-    <!--             <div class="flex-1">
-                <a href="/"><span id="nav__name" class="text-[var(--primary-700)] font-heading font-bold">Anik von Rohr</span></a>
-            </div> -->
-
     <a href="./">
       <Image
         src={Logo}
-        alt="Logo"
-        class="text-blue-500 -rotate-45 size-12 lg:w-16 lg:h-16 drop-shadow-xl"
+        alt="Anik von Rohr Logo"
+        class="drop-shadow-xl -rotate-45 size-12 lg:w-16 lg:h-16"
       />
 
       <div
         id="menu__items"
-        class="hidden lg:flex flex-1 justify-end text-[var(--primary-700)] w-1/3 right-0 font-body lg:items-center gap-3 xl:gap-8"
+        class="hidden lg:flex flex-1 justify-end text-[var(--bone-900)] w-1/3 right-0 font-body lg:items-center gap-3 xl:gap-8 tracking-wide"
       >
-        <a href="./systemische-beratung" class="hover:text-[var(--primary-500)]"
+        <a href="./systemische-beratung" class="hover:text-[var(--bone-600)]"
           >Systemische Beratung</a
         >
-        <a href="./ueber-mich" class="hover:text-[var(--primary-500)]"
+        <a href="./ueber-mich" class="hover:text-[var(--bone-600)]"
           >Über mich</a
         >
-        <a href="/#contact" class="hover:text-[var(--primary-500)]">Kontakt</a>
+        <a href="/#contact" class="hover:text-[var(--bone-600)]">Kontakt</a>
       </div>
       <!-- Mobile menu button -->
-      <div class="flex justify-end flex-1 lg:hidden">
+      <div class="flex flex-1 justify-end lg:hidden">
         <button
           @click="open = !open"
           class="text-[var(--primary-700)] focus:outline-none flex-row-reverse"

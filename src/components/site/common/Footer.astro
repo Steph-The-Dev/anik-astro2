@@ -3,7 +3,7 @@ const currentYear = new Date().getFullYear();
 const { bgColor } = Astro.props;
 ---
 
-<div class:list={["py-4 text-center w-screen", bgColor? `${bgColor}` : "bg-[var(--background-50)]"]}>
+<div class:list={["py-4 text-center", bgColor? `${bgColor}` : "bg-[var(--bone-500)] tracking-wide"]}>
   <p>&copy; {currentYear} Anik von Rohr</p>
   <div class="flex justify-center mt-2">
     <a href="/impressum" class="mr-4">Impressum</a>

@@ -8,17 +8,20 @@ import { Image } from "astro:assets";
 import Happy from "@images/Happy_Bruce_Galpin_2000px.webp";
 import Schaukeln from "@images/Schaukeln Noah Silliman on unsplash-2000px.webp";
 import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
+import Window from "@images/Window_Gabriel Tenan.jpg";
+import Teppich from "@images/teppich_engin_akyurt.webp";
+import Pattern from "@images/Pattern_Daniel_Mc_Cullough.jpg";
 ---
 
 <LayoutSite title="Anik von Rohr - Systemische Beratung">
   <Navbar />
-  <main class="h-full text-[var(--text-800)] bg-[var(--background-50)] md:p-12 md:w-5/6 max-w-[1600px] mx-auto gap-6">
+  <main class="h-full text-[var(--bone-800)] md:p-12 md:w-5/6 max-w-[1600px] mx-auto gap-6">
     <div class="h-[60px] lg:h-[100px]"></div>
 
     <section
       class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[3fr_2fr] grid-cols-1 md:gap-8 overflow-hidden"
     >
-      <div class="p-8 bg-[var(--primary-100)]  place-content-center leading-12 text-wrapper">
+      <div class="p-8 bg-[var(--bone-300)]  place-content-center leading-12 text-wrapper">
         <div class="">
 
           <h1 class="text-3xl 2xl:text-4xl">Was ist systemische Beratung?</h1>
@@ -26,41 +29,32 @@ import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
           <div class="grid gap-8 text-xl 2xl:text-2xl">
   
             <p class="">
-              Wir sind immer auch "Teil eines Ganzen", denn aus der Systemischen Sicht
-              ist unser Erleben und Verhalten nicht isoliert zu betrachten, sondern in
-              der Dynamik von wechselseitigen Beziehungen zur Umwelt.
+              Wir sind immer auch "Teil eines Ganzen", denn aus der Systemischen Sicht ist unser Erleben und Verhalten nicht isoliert zu betrachten, sondern in der Dynamik von wechselseitigen Beziehungen zur Umwelt.
             </p>
             <p class="">
-              Das System eines Klienten, einer Klientin ist zum Beispiel die
-              Ursprungsfamilie, die aktuelle Beziehung, die Familie, das Arbeitsumfeld
-              oder die Schule/Universität sowie auch die Freundschaften oder das
-              Vereinsleben. Verändert sich etwas in einem dieser Bereiche, kann sich
-              das positiv auf alle anderen Bereiche auswirken.
+              Verändert sich ein Teil des Systems so kann das Auswirkungen auf das gesamte System haben.
             </p>
             <p class="">
-              In der systemische Beratung biete ich Ihnen fachliche Hilfe "von außen"
-              und begleite sie aufmerksam und kreativ individuelle neue und hilfreiche
-              Lösungen zu finden!
+              In der systemischen Beratung biete ich Ihnen fachliche Hilfe "von außen" und begleite sie aufmerksam und kreativ, individuelle, neue Wege zu finden!
             </p>
             <p class="">
-              Dabei ist systemisches Arbeiten stets zukunfts-,lösungs- und
-              ressourcenorientiert.
+              Dabei ist systemisches Arbeiten stets zukunfts-,lösungs- und ressourcenorientiert.
             </p>
         </div>
         </div>
       </div>
       
       <div class="flex overflow-hidden image-wrapper min-h-[55vh]">
-          <Image src={Happy} alt="Happy Bruce Galpin" class="flex-1 object-cover object-center w-full h-full" />
+          <Image src={Teppich} alt="Happy Bruce Galpin" type="webp" class="object-cover object-center flex-1 w-full h-full" />
         </div>
     </section>
 
     <section class="xl:grid xl:grid-cols-[2fr_3fr] grid-cols-1 flex flex-col-reverse md:gap-8 mt-6"
     >
     <div class="flex overflow-hidden image-wrapper min-h-[30vw]">
-      <Image src={Schaukeln} alt="Happy Bruce Galpin" class="flex-1 block object-cover object-center w-full h-full" />
+      <Image src={Pattern} alt="Happy Bruce Galpin" type="webp" class="block object-cover object-center flex-1 w-full h-full" />
     </div>
-    <div class="p-8 bg-[var(--primary-300)] place-content-center leading-12 text-wrapper">
+    <div class="p-8 bg-[var(--bone-700)] text-[var(--bone-200)] place-content-center leading-12 text-wrapper">
       <h2 class="mb-4 text-2xl 2xl:text-3xl">Anliegen für eine Beratung können sein:</h2>
       <ul class="grid gap-3 pt-4 text-xl list-disc list-inside 2xl:text-2xl">
         <li>mit schwierigen Veränderungen im Leben besser klar zu kommen</li>
@@ -69,7 +63,6 @@ import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
           alte Muster reflektieren und im Hier und Jetzt neue Lösungsstrategien
           entwickeln lernen
         </li>
-        <li>das Leben endlich wieder frei von Druck genießen können</li>
         <li>
           Konflikte im familiären oder beruflichen Bereich erkennen und
           bewältigen lernen
@@ -77,9 +70,6 @@ import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
         <li>
           Bei Unsicherheiten und Fragen in der Erziehung und den damit
           verbundenen Stress
-        </li>
-        <li>
-          über Autismus in der Familie reden und Hilfestellungen herausarbeiten
         </li>
         <li>bei beruflichen Veränderungswünschen</li>
       </ul>
@@ -90,7 +80,7 @@ import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
     <section
       class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[3fr_2fr] grid-cols-1 md:gap-8 overflow-hidden mt-6"
     >
-      <div class="p-8 bg-[var(--primary-100)] place-content-center leading-12 text-wrapper">
+      <div class="p-8 bg-[var(--bone-300)] place-content-center leading-12 text-wrapper">
         <div>
 
             <h2 class="mb-4 text-2xl 2xl:text-3xl"  >
@@ -106,56 +96,12 @@ import Together from "@images/thogether_Andrew Moca on Unsplash-2000px.webp";
           </div>
         </div>
       <div class="flex overflow-hidden image-wrapper min-h-[200px] xl:min-h-[40vh]">
-        <Image src={Together} alt="Happy Bruce Galpin" class="flex-1 block object-cover object-center w-full h-full" />
+        <Image src={Window} alt="Happy Bruce Galpin" type="webp" class="block object-cover object-center flex-1 w-full h-full" />
       </div>
     </section>
+ </main>
 
-<!--     <section
-    class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[3fr_2fr] grid-cols-1 md:gap-8 overflow-hidden mt-6"
-  >
-    <div class="p-8 bg-[var(--primary-100)] place-content-center leading-12 text-wrapper">
-
-      <h2 class="mb-4 text-2xl ">Der erste Schritt</h2>
-      <p class="mb-2 text-xl">
-        Sie schicken mir eine E-Mail oder rufen mich gerne auch unter Tel.:
-        xxxxxxx an. Gemeinsam besprechen wir das weitere Vorgehen.
-      </p>
-
-      <h2 class="mb-4 text-2xl">
-        Wie lange dauert eine Systemische Beratung?
-      </h2>
-      <p class="mb-2 text-xl">
-        Im Verlauf der Beratung werden wir immer wieder gemeinsam prüfen, wie
-        Sie vorankommen und wie viel Beratung sinnvoll ist. Daher werden wir
-        die Anzahl und den Abstand der Beratungssitzungen nach Ihrer
-        persönlichen Einschätzung immer wieder neu festlegen.
-      </p>
-      <p class="mb-2 text-xl">
-        Eine Sitzung umfasst in der Regel 60 Min. für Einzelne und 90 Min. für
-        Paare. Am Anfang einer Beratung haben sich auch längere Sitzungen
-        bewährt. Oft sind ca. 6-8 Sitzungen ausreichend, manchmal hilft aber
-        auch schon ein einmaliger "Blick von außen", um weiter zukommen.
-      </p>
-
-      <h2 class="mb-4 text-2xl">Meine Schwerpunkte:</h2>
-      <p class="mb-2 text-xl">
-        meine Schwerpunkte liegen in der Einzel - und in der Paarberatung.
-        Nehmen sie für ein Vorgespräch gerne Kontakt mit mir auf. Sie dürfen
-        auch sehr gerne mit mir Kontakt aufnehmen, wenn Sie noch Fragen haben
-        und sich nicht sicher sind.
-      </p>
-
-      <h2 class="mb-4 text-2xl">Terminvereinbarung:</h2>
-      <p class="mb-2 text-xl">
-        Den vereinbarten Termin für die erste Beratungssitzung bestätige ich
-        Ihnen in Textform per E-Mail einschließlich des vereinbarten Honorars
-        und der zugrunde liegenden Allgemeinen Geschäftsbedingungen.
-      </p>
-      </div>
-    </section>
- --></main>
-
-<Footer bgColor="bg-[var(--primary-200)]" />
+<Footer bgColor="" />
 </LayoutSite>
 
 <!-- 
