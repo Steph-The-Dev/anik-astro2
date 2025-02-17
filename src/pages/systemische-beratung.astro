@@ -1,7 +1,5 @@
 ---
 import LayoutSite from "@layouts/LayoutSite.astro";
-import Navbar from "@components/site/common/Navbar.astro";
-import Footer from "@components/site/common/Footer.astro";
 import { Image } from "astro:assets";
 
 // images
@@ -11,15 +9,14 @@ import Pattern from "@images/Pattern_Daniel_Mc_Cullough.jpg";
 ---
 
 <LayoutSite title="Anik von Rohr - Systemische Beratung">
-  <!-- <Navbar /> -->
   <main class="h-full text-[var(--bone-800)] md:p-12 md:w-5/6 max-w-[1600px] mx-auto gap-6">
     <div class="h-[60px] lg:h-[100px]"></div>
 
     <section
       class="grid lg:grid-cols-[1fr_2fr] xl:grid-cols-[2fr_2fr] grid-cols-1 md:gap-8 overflow-hidden"
     >
-      <div class="p-8 bg-[var(--bone-300)]  place-content-center leading-12 text-wrapper">
-        <div class="">
+      <div class="p-8 bg-[var(--bone-300)] place-content-center leading-6 text-wrapper">
+        <div class="grid gap-6">
 
           <h1 class="text-3xl 2xl:text-4xl">Was ist systemische Beratung?</h1>
           <h2 class="mb-4 text-2xl 2xl:text-3xl">Was bedeutet "systemisch"?</h2>
@@ -42,18 +39,18 @@ import Pattern from "@images/Pattern_Daniel_Mc_Cullough.jpg";
       </div>
       
       <div class="flex overflow-hidden image-wrapper min-h-[55vh]">
-          <Image src={Teppich} alt="Happy Bruce Galpin" type="webp" class="object-cover object-center flex-1 w-full h-full" />
+          <Image src={Teppich} alt="Pattern of an olde woven rug" format="webp" class="object-cover object-center flex-1 w-full h-full" />
         </div>
     </section>
 
     <section class="xl:grid xl:grid-cols-[2fr_1fr] grid-cols-1 flex flex-col-reverse md:gap-8 mt-6"
     >
     <div class="flex overflow-hidden image-wrapper min-h-[30vw]">
-      <Image src={Pattern} alt="Happy Bruce Galpin" type="webp" class="block object-cover object-center flex-1 w-full h-full" />
+      <Image src={Pattern} alt="Pattern of a glass window" format="webp" class="block object-cover object-center flex-1 w-full h-full" />
     </div>
-    <div class="p-8 bg-[var(--bone-700)] text-[var(--bone-200)] place-content-center leading-12 text-wrapper">
+    <div class="p-12 bg-[var(--bone-700)] text-[var(--bone-200)] place-content-center text-wrapper">
       <h2 class="mb-4 text-2xl 2xl:text-3xl">Anliegen für eine Beratung können sein:</h2>
-      <ul class="grid gap-3 pt-4 text-xl list-disc list-inside 2xl:text-2xl">
+      <ul class="grid gap-3 pt-4 text-xl leading-8 list-disc list-outside 2xl:text-2xl">
         <li>mit schwierigen Veränderungen im Leben besser klar zu kommen</li>
         <li>Krisen meistern und für Veränderungen nutzen</li>
         <li>
@@ -77,13 +74,13 @@ import Pattern from "@images/Pattern_Daniel_Mc_Cullough.jpg";
     <section
       class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[2fr_2fr] grid-cols-1 md:gap-8 overflow-hidden mt-6"
     >
-      <div class="p-8 bg-[var(--bone-300)] place-content-center leading-12 text-wrapper">
+      <div class="p-12 bg-[var(--bone-300)] place-content-center leading-12 text-wrapper">
         <div>
 
             <h2 class="mb-4 text-2xl 2xl:text-3xl"  >
               Wichtige übergeordnete Ziele Systemischer Praxis sind:
             </h2>
-            <ul class="grid gap-3 pt-4 text-xl list-disc list-inside 2xl:text-2xl">
+            <ul class="grid gap-3 pt-4 list-disc list-outside text-xl/7 2xl:text-2xl/7">
               <li>Erweiterung von Handlungsmöglichkeiten</li>
               <li>Erwerb sozialer und psychologischer Kompetenzen</li>
               <li>Entwicklung neuer Perspektiven</li>
@@ -93,31 +90,8 @@ import Pattern from "@images/Pattern_Daniel_Mc_Cullough.jpg";
           </div>
         </div>
       <div class="flex overflow-hidden image-wrapper min-h-[200px] xl:min-h-[40vh]">
-        <Image src={Window} alt="Happy Bruce Galpin" type="webp" class="block object-cover object-center flex-1 w-full h-full" />
+        <Image src={Window} alt="View through a window oustide overlooking mountains" format="avif" class="block object-cover object-center flex-1 w-full h-full" />
       </div>
     </section>
  </main>
-
-<!-- <Footer bgColor="" /> -->
 </LayoutSite>
-
-<!-- 
-<script>
-window.addEventListener('load', function() {
-  function updateWrapperHeight() {
-  // Get the height of the text-wrapper div
-  let textWrapper = document.querySelector('.text-wrapper') as HTMLDivElement;
-  let textWrapperHeight = textWrapper.offsetHeight;
-  console.log(textWrapperHeight);
-
-  // Apply the height to the image-wrapper div
-  let imageWrapper = document.querySelector('.image-wrapper') as HTMLDivElement;
-  imageWrapper.style.height = textWrapperHeight + 'px';
-  console.log(imageWrapper.style.height)
-  }
-
-  updateWrapperHeight();
-  window.addEventListener('resize', updateWrapperHeight);
-});
-
-</script> -->
