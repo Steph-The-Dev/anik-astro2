@@ -1,12 +1,9 @@
 ---
-import LayoutSite from "@layouts/LayoutSite.astro";
 import { Image } from "astro:assets";
 
-import AnikKontakt from "@images/AnikKontakt_H30A2015.webp";
 import Telefon from "@images/telefon.webp";
 ---
 
-<LayoutSite>
   <main id="contact" class="mx-auto bg-[var(--background-100)]">
     <section class="md:w-5/6 max-w-[1600px] gap-12 py-12 mx-auto ">
       <div id="contact-information" class="w-full cnt_info">
@@ -144,7 +141,6 @@ import Telefon from "@images/telefon.webp";
       </div>
     </section>
   </main>
-</LayoutSite>
 
 <script>
   const form = document.getElementById("form") as HTMLFormElement;

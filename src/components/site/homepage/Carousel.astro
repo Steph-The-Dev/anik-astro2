@@ -1,5 +1,4 @@
 ---
-import LayoutSite from "@layouts/LayoutSite.astro";
 import { Image } from "astro:assets";
 import Pencil from "@images/pencil.webp";
 import GirlWithRedHat from "@images/girl-with-red-hat.webp";
@@ -8,12 +7,11 @@ import Batman from "@images/batman.webp";
 ---
 
 <!-- Using the great slider by Swiffy: https://swiffyslider.com/ -->
-<LayoutSite>
   <main
     class="bg-[var(--secondary-200)] flex items-center md:h-[750px] h-[600px] px-2 md:px-12 py-6 md:py-12"
   >
     <div
-      class="h-full py-4 swiffy-slider slider-item-reveal slider-item-ratio-1x1 slider-nav-visible slider-nav-autoplay slider-nav-autopause"
+      class="py-4 h-full swiffy-slider slider-item-reveal slider-item-ratio-1x1 slider-nav-visible slider-nav-autoplay slider-nav-autopause"
       data-slider-nav-autoplay-interval="3000"
     >
       <ul class="slider-container">
@@ -29,7 +27,7 @@ import Batman from "@images/batman.webp";
             style="background: rgba(195, 159, 111 , 0.9);"
           >
             <div
-              class="flex flex-col items-center content-center justify-center h-full text-center carousel__text"
+              class="flex flex-col justify-center content-center items-center h-full text-center carousel__text"
             >
               <h2>Sie haben eine lebhafte Familie und keine ruhige Minute?</h2>
               <h2 class="mt-2 lg:mt-8">
@@ -68,7 +66,7 @@ import Batman from "@images/batman.webp";
             style="background: rgba(195, 159, 111 , 0.9);"
           >
             <div
-              class="flex flex-col items-center content-center justify-center h-full leading-tight text-center carousel__text"
+              class="flex flex-col justify-center content-center items-center h-full leading-tight text-center carousel__text"
             >
               <h2>Sie möchten sich besser abgrenzen können?</h2>
               <h2 class="mt-2 lg:mt-8">
@@ -91,7 +89,7 @@ import Batman from "@images/batman.webp";
             style="background: rgba(195, 159, 111 , 0.9);"
           >
             <div
-              class="flex flex-col items-center content-center justify-center h-full leading-tight text-center carousel__text"
+              class="flex flex-col justify-center content-center items-center h-full leading-tight text-center carousel__text"
             >
               <h2>Sie möchten etwas in Ihrem Leben verändern?</h2>
               <h2 class="mt-2 lg:mt-8">
@@ -114,7 +112,6 @@ import Batman from "@images/batman.webp";
       </div>
     </div>
   </main>
-</LayoutSite>
 
 <script
   src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
