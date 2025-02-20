@@ -22,8 +22,9 @@ import Taube from "@images/kontakt-taube.jpg";
           <Image
             src={Taube}
             alt="Hier ist ein Bild von einem Telefon."
-            class="object-cover w-full h-full scale-100 hover:scale-105"
+            class="object-cover w-full h-full scale-100 hover:scale-103"
             format="avif"
+            id="contact-information__image"
           />
         </div>
 
@@ -197,5 +198,8 @@ import Taube from "@images/kontakt-taube.jpg";
   }
   #contact-information__title {
     font-size: clamp(1rem, 1rem + 0.75vi, 3rem);
+  }
+  #contact-information__image {
+    transition: all 0.5s ease-in-out;
   }
 </style>
