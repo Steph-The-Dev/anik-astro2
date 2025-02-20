@@ -7,7 +7,7 @@ import Logo from "@images/20241030-anik-logo.webp";
   <div
     class="flex items-center justify-between h-full py-3 px-6 lg:px-12 mx-auto bg-[var(--bone-500)]"
   >
-    <a href="./">
+    <a href="/">
       <Image
         src={Logo}
         alt="Anik von Rohr Logo"
@@ -18,10 +18,10 @@ import Logo from "@images/20241030-anik-logo.webp";
         id="menu__items"
         class="hidden lg:flex flex-1 justify-end text-[var(--bone-900)] w-1/3 right-0 font-body lg:items-center gap-3 xl:gap-8 tracking-wide"
       >
-        <a href="./systemische-beratung" class="hover:text-[var(--bone-600)]"
+        <a href="/systemische-beratung" class="hover:text-[var(--bone-600)]"
           >Systemische Beratung</a
         >
-        <a href="./ueber-mich" class="hover:text-[var(--bone-600)]"
+        <a href="/ueber-mich" class="hover:text-[var(--bone-600)]"
           >Über mich</a
         >
         <a href="/#contact" class="hover:text-[var(--bone-600)]">Kontakt</a>
@@ -77,10 +77,11 @@ import Logo from "@images/20241030-anik-logo.webp";
   </div>
 
   <script>
+    document.addEventListener("astro:page-load", () => {
     let lastScrollTop = 0; // This variable will hold the last scroll position
     const navbar = document.getElementById("navbar");
 
-    window.addEventListener(
+    document.addEventListener(
       "scroll",
       function () {
         let currentScroll =
@@ -101,6 +102,7 @@ import Logo from "@images/20241030-anik-logo.webp";
       },
       false,
     );
+    })
   </script>
 
   <style>

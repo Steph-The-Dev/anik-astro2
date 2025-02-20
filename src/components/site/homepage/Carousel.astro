@@ -113,10 +113,18 @@ import Batman from "@images/batman.webp";
     </div>
   </main>
 
-<script is:inline
-  src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
-  crossorigin="anonymous"
-  defer></script>
+<script>
+// import Swiffy Slider JS
+import { swiffyslider } from 'swiffy-slider'
+window.swiffyslider = swiffyslider;
+
+document.addEventListener("astro:page-load", () => {
+    window.swiffyslider.init();
+});
+
+// import Swiffy Slider CSS
+import "swiffy-slider/css"
+</script>
 
 <style>
   .carousel__text {
