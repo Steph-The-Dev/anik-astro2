@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 
 // assets
-import Telefon from "@images/telefon.webp";
+import Taube from "@images/kontakt-taube.jpg";
 ---
 
   <main id="contact" class="mx-auto bg-[var(--background-100)]">
@@ -20,9 +20,10 @@ import Telefon from "@images/telefon.webp";
           class="w-auto overflow-hidden max-h-[500px] md:max-h-fit"
         >
           <Image
-            src={Telefon}
+            src={Taube}
             alt="Hier ist ein Bild von einem Telefon."
-            class="object-cover object-top w-full h-full"
+            class="object-cover w-full h-full scale-100"
+            format="avif"
           />
         </div>
 
