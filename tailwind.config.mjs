@@ -22,7 +22,7 @@ export default {
         bold: "700"
       },
       colors: {
-        "site-bg-main": "var(--background-600)",
+        "site-bg-main": "var(--background-200)",
         "contact-bg-main": "var(--primary-200)",
         "contact-bg-secondary": "var(--secondary-200)",
         "slider-bg-text": "rgb(var(--slider-bg-text) / 1)",
