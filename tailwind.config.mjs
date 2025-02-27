@@ -26,6 +26,12 @@ export default {
         "contact-bg-main": "var(--primary-200)",
         "contact-bg-secondary": "var(--secondary-200)",
         "slider-bg-text": "rgb(var(--slider-bg-text) / 1)",
+        "nav-bg": "var(--background-200)",
+        "bone": "var(--bone)",
+        "silver": "var(--silver)",
+        "ash-gray": "var(--ash-gray)",
+        "cadet-gray": "var(--cadet-gray)",
+        "air-superiority-blue": "var(--air-superiority-blue)",
         text: {
           50: "var(--text-50)",
           100: "var(--text-100)",
@@ -91,10 +97,68 @@ export default {
           900: "var(--accent-900)",
           950: "var(--accent-950)"
         },
-        "nav-bg": "var(--background-200)"
-      },
-      plugins: [],
-      colors: {}
-    }
+        bone: {
+          50: "var(--bone-50)",
+          100: "var(--bone-100)",
+          200: "var(--bone-200)",
+          300: "var(--bone-300)",
+          400: "var(--bone-400)",
+          500: "var(--bone-500)",
+          600: "var(--bone-600)",
+          700: "var(--bone-700)",
+          800: "var(--bone-800)",
+          900: "var(--bone-900)"
+        },
+        silver: {
+          50: "var(--silver-50)",
+          100: "var(--silver-100)",
+          200: "var(--silver-200)",
+          300: "var(--silver-300)",
+          400: "var(--silver-400)",
+          500: "var(--silver-500)",
+          600: "var(--silver-600)",
+          700: "var(--silver-700)",
+          800: "var(--silver-800)",
+          900: "var(--silver-900)"
+        },
+        "ash-gray": {
+          50: "var(--ash-gray-50)",
+          100: "var(--ash-gray-100)",
+          200: "var(--ash-gray-200)",
+          300: "var(--ash-gray-300)",
+          400: "var(--ash-gray-400)",
+          500: "var(--ash-gray-500)",
+          600: "var(--ash-gray-600)",
+          700: "var(--ash-gray-700)",
+          800: "var(--ash-gray-800)",
+          900: "var(--ash-gray-900)"
+        },
+        "cadet-gray": {
+          50: "var(--cadet-gray-50)",
+          100: "var(--cadet-gray-100)",
+          200: "var(--cadet-gray-200)",
+          300: "var(--cadet-gray-300)",
+          400: "var(--cadet-gray-400)",
+          500: "var(--cadet-gray-500)",
+          600: "var(--cadet-gray-600)",
+          700: "var(--cadet-gray-700)",
+          800: "var(--cadet-gray-800)",
+          900: "var(--cadet-gray-900)"
+        },
+        "air-superiority-blue": {
+          50: "var(--air-superiority-blue-50)",
+          100: "var(--air-superiority-blue-100)",
+          200: "var(--air-superiority-blue-200)",
+          300: "var(--air-superiority-blue-300)",
+          400: "var(--air-superiority-blue-400)",
+          500: "var(--air-superiority-blue-500)",
+          600: "var(--air-superiority-blue-600)",
+          700: "var(--air-superiority-blue-700)",
+          800: "var(--air-superiority-blue-800)",
+          900: "var(--air-superiority-blue-900)"
+        }
+      }
+    },
+    plugins: []
   }
 };

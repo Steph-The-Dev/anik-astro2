@@ -10,13 +10,12 @@
 @layer base {
   :root {
     --slider-bg-text: 196 175 32;
-    /* CSS HEX 
---bone: #dbcebdff;
---silver: #c2c4beff;
---ash-gray: #a8babfff;
---cadet-gray: #8fafc0ff;
---air-superiority-blue: #75a5c1ff;
-*/
+    /* CSS HEX */
+    --bone: #dbcebdff;
+    --silver: #c2c4beff;
+    --ash-gray: #a8babfff;
+    --cadet-gray: #8fafc0ff;
+    --air-superiority-blue: #75a5c1ff;
 
     --bone-50: #faf9f7ff;
     --bone-100: #f5f2ecff;

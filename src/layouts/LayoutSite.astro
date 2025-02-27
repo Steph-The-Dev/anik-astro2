@@ -1,7 +1,11 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 
-const { title = "Anik von Rohr | Systemische Beratung" } = Astro.props;
+const {
+  class: className,
+  title,
+  backgroundColor 
+} = Astro.props;
 
 import Navbar from "@components/site/common/Navbar.astro";
 import Footer from "@components/site/common/Footer.astro";
@@ -26,7 +30,7 @@ import "../styles/global.css";
     <title>{title}</title>
     <ClientRouter />
   </head>
-  <body class="bg-[var(--air-superiority-blue-100)]">
+  <body class={className}>
     <Navbar />
     <div>
       <slot />
