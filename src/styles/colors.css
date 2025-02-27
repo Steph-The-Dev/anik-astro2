@@ -1,0 +1,17 @@
+/* @import "tailwindcss";
+
+@theme {
+  --color-mint-500: oklch(0.72 0.11 178);
+  --color-primary: #3490dc;
+  --color-secondary: #ffed4a;
+  --color-danger: #e3342f;
+  --color-background: var(--color-background);
+}
+
+:root {
+    --color-primary: #3490dc;
+    --color-secondary: #ffed4a;
+    --color-danger: #e3342f;
+    --color-background: var(--air-superiority-blue-600);
+    
+  } */

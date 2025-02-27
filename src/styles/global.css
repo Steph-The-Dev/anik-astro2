@@ -1,22 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-@import "tailwindcss";
-
 [x-cloak] {
   /* fix alpine js flicker on load */
   display: none;
 }
 
-@layer base {
+@import "tailwindcss";
+
+@theme {
+  /* --color-mint-500: oklch(0.72 0.11 178); */
+  --color-primary: #3490dc;
+  --color-secondary: #ffed4a;
+  --color-danger: #e3342f;
+  --color-bg-primary: var(--silver-50);
+  --color-bg-secondary: var(--bone-800);
+}
+
   :root {
     --slider-bg-text: 196 175 32;
-    /* CSS HEX 
---bone: #dbcebdff;
---silver: #c2c4beff;
---ash-gray: #a8babfff;
---cadet-gray: #8fafc0ff;
---air-superiority-blue: #75a5c1ff;
-*/
+    /* CSS HEX
+    --bone: #dbcebdff;
+    --silver: #c2c4beff;
+    --ash-gray: #a8babfff;
+    --cadet-gray: #8fafc0ff;
+    --air-superiority-blue: #75a5c1ff;  */
 
     --bone-50: #faf9f7ff;
     --bone-100: #f5f2ecff;
@@ -194,7 +201,6 @@
     --accent-900: #f1e7da;
     --accent-950: #f8f3ec;
   }
-}
 
 body {
   font-family: "Lato";
