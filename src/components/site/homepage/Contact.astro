@@ -5,8 +5,8 @@ import { Image } from "astro:assets";
 import Taube from "@images/kontakt-taube.jpg";
 ---
 
-  <main id="contact" class="mx-auto bg-[var(--background-100)]">
-    <section class="md:w-5/6 max-w-[1600px] gap-12 py-12 mx-auto ">
+  <main id="contact" class="mx-auto bg-bg-third">
+    <section class="md:w-5/6 max-w-[1600px] md:gap-12 pt-4 md:py-12 mx-auto ">
       <div id="contact-information" class="w-full cnt_info">
         <div
           class="mx-4 mb-2 rounded-md lg:mx-0 text-[var(--text-600)]"
@@ -15,9 +15,9 @@ import Taube from "@images/kontakt-taube.jpg";
         </div>
       </div>
 
-      <div class="grid gap-1 md:grid-cols-[1fr_1fr] xl:grid-cols-[1fr_2fr]">
+      <div class="grid md:gap-1 md:grid-cols-[1fr_1fr] xl:grid-cols-[1fr_2fr]">
         <div
-          class="w-auto overflow-hidden max-h-[500px] md:max-h-fit"
+          class="overflow-hidden max-h-[500px] md:max-h-fit"
         >
           <Image
             src={Taube}
@@ -30,9 +30,9 @@ import Taube from "@images/kontakt-taube.jpg";
 
         <!-- https://web3forms.com/ -->
         <div class="col-span-1 items-center">
-          <div class="container flex mx-auto h-full">
+          <div class="flex">
             <div
-              class="w-full mx-auto bg-[var(--air-superiority-blue-200)] shadow-sm mt-10 md:mt-0 p-2"
+              class="w-full mx-auto bg-[var(--air-superiority-blue-200)] md:shadow-sm md:mt-0 p-2"
             >
               <div class="text-center text-[var(--bone-800)]">
                 <h1 class="my-3 text-3xl font-semibold">
