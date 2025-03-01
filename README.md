@@ -1,5 +1,7 @@
 # Anik von Rohr | Systemische Beratung - Website
 
+![Portfolio Screenshot](/public/AnikVonRohr-Screenshot.png)
+
 Diese Website wurde entwickelt, um Anik von Rohr, eine systemische Beraterin, online zu präsentieren. Das Ziel der Webseite ist es, die Reichweite zu fördern und mehr Kunden anzusprechen. Sie stellt wichtige Informationen bereit, um Interessenten zur Kontaktaufnahme zu bewegen.
 
 ## 🚀 Technologien
