@@ -16,12 +16,12 @@
     "@tailwindcss/vite": "^4.0.9",
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.8",
-    "astro": "^5.4.0",
+    "astro": "^5.4.1",
     "astro-robots-txt": "^1.0.0",
     "npm-check-updates": "^17.1.15",
     "swiffy-slider": "^1.6.0",
     "tailwindcss": "^4.0.9",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.25.0",

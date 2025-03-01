@@ -5,13 +5,15 @@ import Logo from "@images/20241030-anik-logo.webp";
 
 <nav id="navbar" x-data="{ open: false }" class="fixed top-0 z-50 w-full">
   <div
-    class="flex items-center justify-between h-full py-3 px-6 lg:px-12 mx-auto bg-[var(--bone-500)]"
+    class="flex items-center justify-between py-3 px-6 lg:px-12 mx-auto bg-[var(--bone-500)]"
   >
     <a href="/">
       <Image
         src={Logo}
         alt="Anik von Rohr Logo"
-        class="drop-shadow-xl -rotate-45 size-12 lg:w-16 lg:h-16"
+        width={48}
+        height={48}
+        class="drop-shadow-xl -rotate-45"
       />
 
       <div

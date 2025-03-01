@@ -14,6 +14,9 @@
   --color-danger: #e3342f;
   --color-bg-primary: var(--silver-50);
   --color-bg-secondary: var(--bone-800);
+
+  --font-heading: "Playfair Display", "serif";
+  --font-body: "Lato", "sans-serif";
 }
 
   :root {
@@ -201,15 +204,3 @@
     --accent-900: #f1e7da;
     --accent-950: #f8f3ec;
   }
-
-body {
-  font-family: "Lato";
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Playfair Display";
-}

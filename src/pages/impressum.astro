@@ -3,11 +3,10 @@ import LayoutSite from "@layouts/LayoutSite.astro";
 ---
 
 <LayoutSite title="Anik von Rohr - Systemische Beratung | Impressum" class="bg-bg-secondary">
-  <main class="h-screen">
     <section
-      class="flex flex-col justify-center h-full py-12 px-4 max-w-6xl md:max-w-[80%] mx-auto items-left text-[var(--text-100)]"
+      class="font-body h-dvh flex flex-col justify-center  px-4 max-w-6xl md:max-w-[80%] mx-auto items-left text-[var(--text-100)]"
     >
-      <div class="">
+      <!-- <div class="">
         <a
           href="/"
           class="max-w-6xl md:max-w-[80%] flex gap-6 back-arrow text-[var(--text-100)]"
@@ -25,18 +24,18 @@ import LayoutSite from "@layouts/LayoutSite.astro";
           </svg>
           <span>Zurück zur Hauptseite</span>
         </a>
-      </div>
+      </div> -->
       <div class="place-content-center grow">
-        <div class="pb-12">
+        <div class="">
           <h1 class="text-3xl font-bold font-body">Impressum</h1>
-          <h2 class="font-body">Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+          <h2 class="font-body">Angaben gemäß § 5 TMG</h2>
         </div>
 
-        <p class="pb-6 text-xl">
+        <p class="py-6 text-xl">
           Anik von Rohr<br />
           Systemische Beratung<br />
           Barbarastrasse 64<br />
-          50735 K&ouml;ln
+          50735 Köln
         </p>
 
         <div class="pb-12 text-xl">
@@ -71,5 +70,10 @@ import LayoutSite from "@layouts/LayoutSite.astro";
         </p>
       </div>
     </section>
-  </main>
 </LayoutSite>
+
+<style>
+  /* * {
+    font-family: Lato, sans-serif;
+  } */
+</style>
