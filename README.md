@@ -9,7 +9,6 @@ Diese [Website](https://www.anikvonrohr.de) wurde entwickelt, um Anik von Rohr, 
 Die Website wurde mit folgenden modernen Technologien entwickelt:
 
 - **[Astro](https://astro.build/)** - Ein modernes Web-Framework, das für Geschwindigkeit und Benutzerfreundlichkeit optimiert ist
-- **[TypeScript](https://www.typescriptlang.org/)** - Für typsicheren JavaScript-Code
 - **[TailwindCSS](https://tailwindcss.com/)** - Utility-First CSS-Framework für schnelles und responsives Design
 - **[AlpineJS](https://alpinejs.dev/)** - Minimalistisches JavaScript-Framework für interaktive UI-Komponenten
 
