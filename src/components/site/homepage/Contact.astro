@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 
 // assets
-import Taube from "@images/kontakt-taube.jpg";
+import Phone from "@images/kontakt-phone.jpg";
 ---
 
   <main id="contact" class="mx-auto bg-bg-third">
@@ -15,24 +15,24 @@ import Taube from "@images/kontakt-taube.jpg";
         </div>
       </div>
 
-      <div class="grid md:gap-1 md:grid-cols-[1fr_1fr] xl:grid-cols-[1fr_2fr]">
+      <div class="grid md:gap-1 lg:grid-cols-[auto_1fr] xl:grid-cols-[auto_2fr]">
         <div
-          class="overflow-hidden max-h-[500px] md:max-h-fit"
+          class="h-full overflow-hidden"
         >
           <Image
-            src={Taube}
+            src={Phone}
             alt="Hier ist ein Bild von einem Telefon."
-            class="object-cover w-full h-full scale-100 hover:scale-103"
+            class="object-cover w-full scale-100 h-96 lg:h-full lg:w-96 hover:scale-103"
             format="avif"
             id="contact-information__image"
           />
         </div>
 
         <!-- https://web3forms.com/ -->
-        <div class="col-span-1 items-center">
+        <div class="items-center col-span-1">
           <div class="flex">
             <div
-              class="w-full mx-auto bg-[var(--air-superiority-blue-200)] md:shadow-sm md:mt-0 p-2"
+              class="w-full mx-auto bg-[var(--air-superiority-blue-200)] md:mt-0 p-2"
             >
               <div class="text-center text-[var(--bone-800)]">
                 <h1 class="my-3 text-3xl font-semibold">
