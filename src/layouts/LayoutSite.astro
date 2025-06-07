@@ -25,6 +25,45 @@ import "../styles/global.css";
     />
     <title>{title}</title>
     <ClientRouter />
+
+        <!-- Matomo -->
+<script>
+declare global {
+  interface Window {
+    _paq?: any[]; // Or a more specific type if you know it
+  }
+}
+
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//schneidenundfaerben.de/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js';
+
+    // Check if s and s.parentNode exist before trying to use insertBefore
+    if (s && s.parentNode) {
+      s.parentNode.insertBefore(g,s);
+    } else {
+      // Fallback: if no script tag is found, or it has no parent,
+      // append to the head. This is a common practice for analytics scripts.
+      // document.head is available in all modern browsers.
+      // For older browsers, one might use document.getElementsByTagName('head')[0]
+      const head = document.head || document.getElementsByTagName('head')[0];
+      if (head) {
+        head.appendChild(g);
+      } else {
+        // As an absolute last resort, though highly unlikely in a valid HTML document
+        document.body.appendChild(g);
+      }
+    }
+  })();
+</script>
+<!-- End Matomo Code -->
   </head>
   <body class={className}>
     <Navbar />
