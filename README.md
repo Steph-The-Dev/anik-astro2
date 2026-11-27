@@ -1,70 +1,93 @@
-# Anik von Rohr | Systemische Beratung - Website
+# Anik von Rohr | Systemische Beratung – Website
 
-![Portfolio Screenshot](/public/AnikVonRohr-Screenshot.png)
-
-Diese [Website](https://www.anikvonrohr.de) wurde entwickelt, um Anik von Rohr, eine systemische Beraterin, online zu präsentieren. Das Ziel der Webseite ist es, die Reichweite zu fördern und mehr Kunden anzusprechen. Sie stellt wichtige Informationen bereit, um Interessenten zur Kontaktaufnahme zu bewegen.
+Quellcode der Website [www.anikvonrohr.de](https://www.anikvonrohr.de) von Anik von Rohr, systemische Beraterin (DGSF) in Basel. Die Seite stellt das Beratungsangebot vor und soll Interessierten den Schritt zur Kontaktaufnahme leicht machen.
 
 ## 🚀 Technologien
 
 - **[Astro 7](https://astro.build/)** – statische Seiten, optimierte Bilder (`astro:assets`), Sitemap & robots.txt
 - **[Tailwind CSS 4](https://tailwindcss.com/)** – Design-Tokens in `src/styles/global.css` (`@theme`, `@utility`)
-- **Selbst gehostete Schriften** via Fontsource (Playfair Display, Lato) – keine Verbindung zu Google Fonts
-- **Native Web-Plattform statt Frameworks**: Popover-API für das mobile Menü, CSS View Transitions für Seitenwechsel
+- **Selbst gehostete Schriften** über Fontsource (Playfair Display, Lato) – keine Verbindung zu Google Fonts
+- **Native Web-Plattform statt Frameworks** – Popover-API für das mobile Menü, CSS View Transitions für Seitenwechsel
+- **PHP-Kontaktformular** auf dem eigenen Webspace – kein externer Formulardienst
 - **Matomo** (selbst gehostet, ohne Cookies) für die Webanalyse
 
-### Besondere Komponenten
+## 📄 Seiten
 
-#### 📝 Kontaktformular (eigenes PHP-Skript)
+| Seite | Datei |
+|---|---|
+| Startseite (Hero, Themen, Zitat, Kontakt) | `src/pages/index.astro` |
+| Systemische Beratung | `src/pages/systemische-beratung.astro` |
+| Über mich | `src/pages/ueber-mich.astro` |
+| Impressum | `src/pages/impressum.astro` |
+| Datenschutzerklärung (Schweizer DSG) | `src/pages/datenschutzerklaerung.astro` |
 
-Das Formular sendet an `public/kontakt.php`, das auf dem eigenen Webspace läuft und die Anfrage per `mail()` weiterleitet – ohne externen Formulardienst.
+Die Seite richtet sich an die Schweiz: `lang="de-CH"`, Schweizer Schreibweise (ss statt ß), Impressum und Datenschutzerklärung nach Schweizer Recht.
 
-- Spam-Schutz: Honeypot-Feld, Mindest-Ausfülldauer, Rate-Limit pro IP (nur Hash, verfällt nach 1 h)
-- Funktioniert mit und ohne JavaScript (JSON-Antwort bzw. Weiterleitung mit `?kontakt=ok|fehler`)
-- Die Empfängeradresse steht nicht im Repository: Beim Build wird `dist/kontakt-config.php` aus `.env` erzeugt
-- Voraussetzung auf dem Server: PHP ≥ 8.1 mit funktionierendem `mail()` (z. B. netcup Webhosting)
-- Im Dev-Server (`npm run dev` / `preview`) läuft kein PHP – das Formular lässt sich nur auf dem Webspace testen
+## 🔒 Kontaktdaten & Datenschutz
 
-### 🔒 Kontaktdaten & Umgebungsvariablen
+Persönliche Kontaktdaten stehen **nicht im Repository**:
 
-E-Mail, Telefon und Adresse kommen aus `.env` (Vorlage: `.env.example`) und werden nur kodiert ins HTML geschrieben (`Protected.astro`). Ohne `.env` bricht der Build bewusst ab.
+- E-Mail, Telefon und Adresse kommen aus `.env` (Vorlage: `.env.example`). Ohne `.env` bricht der Build bewusst ab.
+- `Protected.astro` schreibt die Werte nur kodiert ins HTML und wandelt sie erst im Browser in normale Links um. Einfache Adress-Sammler finden sie im Quelltext so nicht.
+- Impressum und Datenschutzerklärung sind `noindex` und nicht in der Sitemap.
+
+```dotenv
+CONTACT_EMAIL=name@example.com
+CONTACT_PHONE=+41 00 000 00 00
+CONTACT_ADDRESS=Musterstrasse 1|1234 Ort|Schweiz   # Zeilen mit | trennen
+CONTACT_FORM_FROM=                                  # optional, Absender für Formular-Mails
+```
+
+## 📝 Kontaktformular
+
+Das Formular sendet an `public/kontakt.php`, das die Anfrage per `mail()` an die Adresse aus `CONTACT_EMAIL` weiterleitet. Gespeichert wird nichts.
+
+- **Spam-Schutz:** Honeypot-Feld, Mindest-Ausfülldauer (im Browser gemessen), Rate-Limit von 5 Anfragen pro Stunde und IP (nur gehasht, verfällt nach 1 h), Origin-Check
+- **Mit und ohne JavaScript:** JSON-Antwort bzw. Weiterleitung mit `?kontakt=ok|fehler`
+- **Konfiguration:** Beim Build wird `dist/kontakt-config.php` aus `.env` erzeugt (siehe `astro.config.mjs`). Die Datei gibt bei direktem Aufruf nur 404 zurück.
+- Im Dev-Server (`npm run dev` / `preview`) läuft kein PHP – das Formular lässt sich nur auf dem Webspace testen.
 
 ## 🛠️ Entwicklung
 
+Voraussetzung: **Node.js ≥ 22** und eine ausgefüllte `.env`.
+
 ```bash
-# Lokale Entwicklungsumgebung starten
-npm run dev
+npm install
+cp .env.example .env   # Werte eintragen
 
-# Build für Produktion erstellen
-npm run build
-
-# Build-Ergebnis vorab anzeigen
-npm run preview
-
-# Typen prüfen, linten, formatieren
-npm run check
-npm run lint
-npm run format
+npm run dev       # Entwicklungsserver auf http://localhost:4321
+npm run build     # Typprüfung (astro check) + Build nach dist/
+npm run preview   # Build lokal ansehen
+npm run lint      # ESLint inkl. Accessibility-Regeln
+npm run format    # Prettier
 ```
-
-Voraussetzung: Node.js ≥ 22.
 
 ## 📦 Projektstruktur
 
 ```
 /
-├── public/            # Statische Assets
+├── public/                  # Statische Dateien, inkl. kontakt.php
 ├── src/
-│   ├── components/    # UI-Komponenten
-│   ├── layouts/       # Seitenlayouts
-│   ├── pages/         # Astro-Seiten
-│   ├── styles/        # Globale Stile & Design-Tokens
-│   └── assets/images/ # Bildressourcen (werden beim Build optimiert)
-└── package.json       # Projektabhängigkeiten
+│   ├── assets/images/       # Bilder (werden beim Build optimiert)
+│   ├── components/site/
+│   │   ├── common/          # Navbar, Footer, Quote, Protected
+│   │   └── homepage/        # Hero, Topics, Contact
+│   ├── layouts/             # LayoutSite (Meta-Tags, Matomo, Skip-Link)
+│   ├── lib/contact.ts       # Kontaktdaten aus .env + Kodierung
+│   ├── pages/               # Seiten
+│   └── styles/global.css    # Design-Tokens & Basis-Stile
+├── .env.example             # Vorlage für Kontaktdaten
+└── astro.config.mjs         # Astro-Konfiguration inkl. Erzeugung der Formular-Config
 ```
 
 ## 🚀 Deployment
 
-Die Website kann auf verschiedenen Hosting-Plattformen bereitgestellt werden, die statisches Hosting unterstützen, wie z.B. Netlify, Vercel, GitHub Pages oder jeder andere Webserver.
+Die Seite liegt bei **netcup** (Webhosting) und wird manuell veröffentlicht:
+
+1. `npm run build` mit ausgefüllter `.env`
+2. Den **kompletten Inhalt von `dist/`** auf den Webspace hochladen – inklusive `kontakt.php` und `kontakt-config.php`
+3. Auf dem Webspace ist **PHP 8.5** eingestellt (mindestens 8.1 nötig)
+4. Nach Änderungen am Formular eine Testnachricht schicken
 
 ## 🧞 Lizenz
 
