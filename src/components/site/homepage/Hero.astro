@@ -1,57 +1,50 @@
 ---
 import { Image } from "astro:assets";
-
 import AnikHero from "@images/AnikHero-H30A1875.webp";
 ---
 
-  <main>
-    <section class="grid md:w-5/6 max-w-[1600px] mx-auto md:pb-8 lg:pb-16">
-      <div class="h-[70px] md:h-[100px] lg:h-[140px]"></div>
-      <div
-        id="introduction"
-        class="flex flex-col-reverse md:gap-1 mx-auto lg:flex-row"
-      >
-        <div
-          class="flex flex-col justify-between lg:justify-around w-full lg:w-1/3 p-4 h-content lg:h-full mx-auto bg-[var(--secondary-400)] text-[var(--text-100)]"
-        >
-          <h1
-            id="hero__willkommen"
-            class="font-bold leading-tight wrap-normal font-heading text-wrap sm:leading-tight md:leading-tight"
-          >
-            Herzlich Willkommen!
-          </h1>
-          <h2
-            id="hero__vorstellung"
-            class="font-body leading-tight break-normal text-balance"
-          >
-            Anik von Rohr
-            <br>
-              systemische Beraterin
-            </h2>
-          </h2>
-        </div>
+<section aria-labelledby="hero-title" class="relative overflow-hidden">
+  <div
+    aria-hidden="true"
+    class="bg-sand-100 absolute -top-40 -right-40 -z-10 size-[36rem] rounded-full opacity-70 blur-3xl"
+  ></div>
 
-        <div class="w-full overflow-hidden md:max-h-full min-h-[450px]">
-          <Image
-            id="hero__image"
-            src={AnikHero}
-            alt="Anik von Rohr"
-            class="object-cover object-center h-full scale-110 hover:scale-125"
-          />
-        </div>
+  <div class="container-page grid items-center gap-10 py-12 md:py-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+    <div class="order-2 lg:order-1">
+      <p class="eyebrow">Herzlich willkommen</p>
+      <h1 id="hero-title" class="mt-4 text-4xl font-semibold sm:text-5xl xl:text-6xl">
+        Neue Wege finden&nbsp;–
+        <br class="hidden sm:block" />
+        <em class="text-clay-600 font-normal">gemeinsam</em> und in Ihrem Tempo.
+      </h1>
+      <p class="text-ink-muted mt-6 max-w-xl text-lg sm:text-xl">
+        Ich bin Anik von Rohr, systemische Beraterin (DGSF zertifiziert) in Basel. Ich begleite Sie bei Veränderungen,
+        Krisen und Konflikten – in der Familie, im Beruf und im Alltag.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#kontakt" class="btn-primary">
+          Kontakt aufnehmen
+        </a>
+        <a href="/systemische-beratung" class="btn-ghost">
+          Was ist systemische Beratung?
+        </a>
       </div>
-    </section>
-  </main>
+    </div>
 
-<style>
-  #hero__willkommen {
-    font-size: clamp(1.25rem, 1rem + 1.5vi, 3rem);
-  }
-  #hero__vorstellung {
-    font-size: clamp(1rem, 1rem + 1vi, 2.5rem);
-    font-family: Lato;;
-  }
-  #hero__image {
-    transition: all 0.5s ease-in-out;
-  }
-</style>
+    <div class="order-1 lg:order-2">
+      <div class="relative mx-auto max-w-md lg:max-w-none">
+        <div aria-hidden="true" class="bg-sage-200 absolute inset-0 translate-x-4 translate-y-4 rounded-[2rem]"></div>
+        <Image
+          src={AnikHero}
+          alt="Porträt von Anik von Rohr"
+          width={1280}
+          widths={[480, 720, 960, 1280]}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="relative aspect-[4/5] w-full rounded-[2rem] object-cover object-center shadow-[var(--shadow-soft)] sm:aspect-[5/4] lg:aspect-[4/5]"
+        />
+      </div>
+    </div>
+  </div>
+</section>

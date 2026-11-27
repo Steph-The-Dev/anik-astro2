@@ -1,12 +1,27 @@
 ---
 const currentYear = new Date().getFullYear();
-const { bgColor } = Astro.props;
 ---
 
-<div class:list={["py-4 text-center", bgColor? `${bgColor}` : "bg-[var(--bone-500)] tracking-wide"]}>
-  <p>&copy; {currentYear} Anik von Rohr</p>
-  <div class="flex justify-center mt-2">
-    <a href="/impressum" class="mr-4">Impressum</a>
-    <a href="/datenschutzerklaerung">Datenschutzerklärung</a>
+<footer class="bg-sand-100 text-ink-muted mt-auto">
+  <div class="container-page flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <p class="font-heading text-ink text-lg">Anik von Rohr</p>
+      <p class="text-sm">Systemische Beratung in Basel</p>
+    </div>
+    <nav aria-label="Rechtliches">
+      <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <li>
+          <a href="/impressum" class="hover:text-ink underline-offset-4 hover:underline">
+            Impressum
+          </a>
+        </li>
+        <li>
+          <a href="/datenschutzerklaerung" class="hover:text-ink underline-offset-4 hover:underline">
+            Datenschutzerklärung
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <p class="text-sm">&copy; {currentYear} Anik von Rohr</p>
   </div>
-</div>
+</footer>

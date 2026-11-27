@@ -2,93 +2,108 @@
 import LayoutSite from "@layouts/LayoutSite.astro";
 import { Image } from "astro:assets";
 
-// images
 import Window from "@images/Window_Gabriel Tenan.jpg";
 import Teppich from "@images/teppich_engin_akyurt.webp";
 import Pattern from "@images/Pattern_Daniel_Mc_Cullough.jpg";
+
+const anliegen = [
+  "schwierige Veränderungen im Leben besser bewältigen",
+  "Krisen meistern und als Chance für Veränderung nutzen",
+  "alte Muster reflektieren und im Hier und Jetzt neue Lösungsstrategien entwickeln",
+  "Konflikte in Familie oder Beruf erkennen und bewältigen",
+  "Unsicherheiten und Fragen in der Erziehung – und den damit verbundenen Stress",
+  "berufliche Veränderungswünsche"
+];
+
+const ziele = [
+  "Erweiterung von Handlungsmöglichkeiten",
+  "Erwerb sozialer und psychologischer Kompetenzen",
+  "Entwicklung neuer Perspektiven",
+  "Bearbeitung konkreter Entscheidungsfragen",
+  "Bewältigung persönlicher Krisen"
+];
+
+const imgClass = "size-full min-h-72 rounded-[var(--radius-card)] object-cover";
+const sizes = "(min-width: 1024px) 50vw, 100vw";
 ---
 
-<LayoutSite title="Anik von Rohr - Systemische Beratung" class="bg-bg-primary">
-  <main class="h-full text-[var(--bone-800)] md:p-12 md:w-5/6 max-w-[1600px] mx-auto">
-    <div class="h-[60px] lg:h-[100px]"></div>
+<LayoutSite
+  title="Systemische Beratung"
+  description="Was bedeutet systemische Beratung? Anliegen und Ziele der systemischen Arbeit – Anik von Rohr, systemische Beraterin in Basel."
+>
+  <header class="container-page pt-12 pb-10 md:pt-20">
+    <p class="eyebrow">Systemische Beratung</p>
+    <h1 class="mt-3 max-w-3xl text-4xl font-semibold sm:text-5xl">Was bedeutet „systemisch“?</h1>
+  </header>
 
-    <section
-      class="grid lg:grid-cols-[1fr_2fr] xl:grid-cols-[2fr_2fr] grid-cols-1 lg:gap-4 overflow-hidden"
-    >
-      <div class="p-8 bg-[var(--bone-300)] place-content-center leading-6 text-wrapper">
-        <div class="grid gap-6">
-
-          <!-- <h1 class="text-3xl 2xl:text-4xl">Was ist systemische Beratung?</h1> -->
-          <h2 class="mb-4 text-2xl 2xl:text-3xl font-heading">Was bedeutet "systemisch"?</h2>
-          <div class="grid gap-8 text-xl 2xl:text-2xl">
-  
-            <p class="">
-              Wir sind immer auch "Teil eines Ganzen", denn aus der Systemischen Sicht ist unser Erleben und Verhalten nicht isoliert zu betrachten, sondern in der Dynamik von wechselseitigen Beziehungen zur Umwelt.
-            </p>
-            <p class="">
-              Verändert sich ein Teil des Systems so kann das Auswirkungen auf das gesamte System haben.
-            </p>
-            <p class="">
-              In der systemischen Beratung biete ich Ihnen fachliche Hilfe "von außen" und begleite sie aufmerksam und kreativ, individuelle, neue Wege zu finden!
-            </p>
-            <p class="">
-              Dabei ist systemisches Arbeiten stets zukunfts-, lösungs- und ressourcenorientiert.
-            </p>
-        </div>
-        </div>
+  <div class="container-page grid gap-16 pb-20 md:gap-24 md:pb-28">
+    <section class="grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
+      <div class="text-ink-muted space-y-5 text-lg sm:text-xl">
+        <p>
+          Wir sind immer auch „Teil eines Ganzen“: Aus systemischer Sicht lassen sich unser Erleben und Verhalten nicht
+          isoliert betrachten, sondern nur in der Dynamik wechselseitiger Beziehungen zu unserer Umwelt.
+        </p>
+        <p>Verändert sich ein Teil des Systems, kann das Auswirkungen auf das gesamte System haben.</p>
+        <p>
+          In der systemischen Beratung biete ich Ihnen fachliche Hilfe „von aussen“ und begleite Sie aufmerksam und
+          kreativ dabei, individuelle, neue Wege zu finden.
+        </p>
+        <p class="text-ink font-bold">
+          Systemisches Arbeiten ist dabei stets zukunfts-, lösungs- und ressourcenorientiert.
+        </p>
       </div>
-      
-      <div class="flex overflow-hidden image-wrapper min-h-[55vh]">
-          <Image src={Teppich} alt="Pattern of an olde woven rug" format="webp" class="object-cover object-center flex-1 w-full h-full" />
-        </div>
+      <Image src={Teppich} alt="" width={1280} widths={[640, 960, 1280]} sizes={sizes} class={imgClass} />
     </section>
 
-    <section class="xl:grid xl:grid-cols-[2fr_1fr] grid-cols-1 flex flex-col-reverse lg:gap-4 md:mt-6"
-    >
-    <div class="flex overflow-hidden image-wrapper min-h-[30vw]">
-      <Image src={Pattern} alt="Pattern of a glass window" format="webp" class="block object-cover object-center flex-1 w-full h-full" />
-    </div>
-    <div class="p-12 bg-[var(--bone-700)] text-[var(--bone-200)] place-content-center text-wrapper">
-      <h2 class="mb-4 text-2xl 2xl:text-3xl  font-heading">Anliegen für eine Beratung können sein:</h2>
-      <ul class="grid gap-3 pt-4 text-xl leading-8 list-disc list-outside 2xl:text-2xl">
-        <li>mit schwierigen Veränderungen im Leben besser klar zu kommen</li>
-        <li>Krisen meistern und für Veränderungen nutzen</li>
-        <li>
-          alte Muster reflektieren und im Hier und Jetzt neue Lösungsstrategien entwickeln lernen
-        </li>
-        <li>
-          Konflikte im familiären oder beruflichen Bereich erkennen und bewältigen lernen
-        </li>
-        <li>
-          Bei Unsicherheiten und Fragen in der Erziehung und den damit verbundenen Stress
-        </li>
-        <li>bei beruflichen Veränderungswünschen</li>
-      </ul>
+    <section aria-labelledby="anliegen" class="grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
+      <Image
+        src={Pattern}
+        alt=""
+        width={1280}
+        widths={[640, 960, 1280]}
+        sizes={sizes}
+        class:list={[imgClass, "order-2 lg:order-1"]}
+      />
+      <div class="bg-ink text-sand-50 rounded-[var(--radius-card)] p-8 sm:p-12 order-1 lg:order-2">
+        <h2 id="anliegen" class="text-sand-50 text-2xl font-semibold sm:text-3xl">
+          Anliegen für eine Beratung können sein:
+        </h2>
+        <ul class="mt-6 space-y-3 text-lg">
+          {anliegen.map((item) => (
+            <li class="flex gap-3">
+              <span aria-hidden="true" class="bg-sand-300 mt-3 size-1.5 shrink-0 rounded-full" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
-    
 
-    <section
-      class="grid lg:grid-cols-[2fr_2fr] xl:grid-cols-[2fr_2fr] grid-cols-1 lg:gap-4 overflow-hidden md:mt-6"
-    >
-      <div class="p-12 bg-[var(--bone-300)] place-content-center leading-12 text-wrapper">
-        <div>
-
-            <h2 class="mb-4 text-2xl 2xl:text-3xl  font-heading"  >
-              Wichtige übergeordnete Ziele Systemischer Praxis sind:
-            </h2>
-            <ul class="grid gap-3 pt-4 list-disc list-outside text-xl/7 2xl:text-2xl/7">
-              <li>Erweiterung von Handlungsmöglichkeiten</li>
-              <li>Erwerb sozialer und psychologischer Kompetenzen</li>
-              <li>Entwicklung neuer Perspektiven</li>
-              <li>Bearbeitung spezifischer Entscheidungsfragen</li>
-              <li>Bewältigung persönlicher Krisen</li>
-            </ul>
-          </div>
-        </div>
-      <div class="flex overflow-hidden image-wrapper min-h-[200px] xl:min-h-[40vh]">
-        <Image src={Window} alt="View through a window oustide overlooking mountains" format="avif" class="block object-cover object-center flex-1 w-full h-full" />
+    <section aria-labelledby="ziele" class="grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
+      <div class="bg-sand-100 rounded-[var(--radius-card)] p-8 sm:p-12">
+        <h2 id="ziele" class="text-2xl font-semibold sm:text-3xl">
+          Übergeordnete Ziele systemischer Praxis
+        </h2>
+        <ol class="mt-6 grid gap-4">
+          {ziele.map((item, i) => (
+            <li class="flex items-baseline gap-4 text-lg">
+              <span class="font-heading text-clay-600 text-2xl">{String(i + 1).padStart(2, "0")}</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ol>
       </div>
+      <Image src={Window} alt="" width={1280} widths={[640, 960, 1280]} sizes={sizes} class={imgClass} />
     </section>
- </main>
+
+    <section class="card flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-12">
+      <div>
+        <h2 class="text-2xl font-semibold sm:text-3xl">Sie möchten mehr erfahren?</h2>
+        <p class="text-ink-muted mt-2 text-lg">Ein erstes Gespräch ist der einfachste Schritt.</p>
+      </div>
+      <a href="/#kontakt" class="btn-primary shrink-0">
+        Kontakt aufnehmen
+      </a>
+    </section>
+  </div>
 </LayoutSite>

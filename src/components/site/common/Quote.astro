@@ -1,0 +1,23 @@
+---
+interface Props {
+  text: string;
+  author: string;
+  source?: string;
+}
+const { text, author, source } = Astro.props;
+---
+
+<section class="py-20 md:py-28">
+  <figure class="container-page max-w-4xl text-center">
+    <svg aria-hidden="true" class="text-sand-300 mx-auto size-12" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M9.3 6C5 8.3 2 12.6 2 17.6 2 22.2 4.8 26 8.6 26c3 0 5.2-2.3 5.2-5.1 0-2.8-2-4.9-4.6-4.9-.5 0-1 .1-1.2.2.6-3.3 3.6-6.6 6.6-8.2L9.3 6Zm15 0c-4.3 2.3-7.3 6.6-7.3 11.6 0 4.6 2.8 8.4 6.6 8.4 3 0 5.2-2.3 5.2-5.1 0-2.8-2-4.9-4.6-4.9-.5 0-1 .1-1.2.2.6-3.3 3.6-6.6 6.6-8.2L24.3 6Z"></path>
+    </svg>
+    <blockquote class="font-heading mt-6 text-2xl leading-snug italic sm:text-3xl md:text-4xl">
+      <p>{text}</p>
+    </blockquote>
+    <figcaption class="text-ink-muted mt-6">
+      <span class="text-ink font-bold">{author}</span>
+      {source && <>, {source}</>}
+    </figcaption>
+  </figure>
+</section>

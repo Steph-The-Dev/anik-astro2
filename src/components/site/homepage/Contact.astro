@@ -1,205 +1,144 @@
 ---
 import { Image } from "astro:assets";
-
-// assets
 import Phone from "@images/kontakt-phone.jpg";
+import { CONTACT } from "@lib/contact";
+import Protected from "@components/site/common/Protected.astro";
+
+const field =
+  "border-ink/15 placeholder:text-ink-muted/60 focus:border-sage-600 focus:ring-sage-600/20 w-full rounded-xl border bg-white px-4 py-3 transition outline-none focus:ring-4";
 ---
 
-  <main id="contact" class="mx-auto bg-bg-third">
-    <section class="md:w-5/6 max-w-[1600px] md:gap-12 pt-4 md:py-12 mx-auto ">
-      <div id="contact-information" class="w-full cnt_info">
-        <div
-          class="mx-4 mb-2 rounded-md lg:mx-0 text-[var(--text-600)]"
-        >
-          <h2 id="contact-information__name">Kontakt</h2>
+<section id="kontakt" aria-labelledby="contact-title" class="bg-sage-100 py-20 md:py-28">
+  <div class="container-page grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
+    <div class="flex flex-col">
+      <p class="eyebrow">Kontakt</p>
+      <h2 id="contact-title" class="mt-3 text-3xl font-semibold sm:text-4xl">
+        Schreiben Sie mir
+      </h2>
+      <p class="text-ink-muted mt-4 text-lg">
+        Sie möchten ein erstes Gespräch vereinbaren oder haben eine Frage? Ich melde mich zeitnah bei Ihnen zurück.
+      </p>
+
+      <dl class="mt-8 space-y-4">
+        <div>
+          <dt class="text-ink-muted text-sm">E-Mail</dt>
+          <dd>
+            <Protected value={CONTACT.email} kind="email" class="contact-link" />
+          </dd>
+        </div>
+        <div>
+          <dt class="text-ink-muted text-sm">Telefon</dt>
+          <dd>
+            <Protected value={CONTACT.phone} kind="tel" class="contact-link" />
+          </dd>
+        </div>
+      </dl>
+
+      <Image
+        src={Phone}
+        alt=""
+        width={800}
+        widths={[480, 800]}
+        sizes="(min-width: 1024px) 40vw, 100vw"
+        class="mt-10 hidden aspect-[4/3] w-full rounded-[var(--radius-card)] object-cover lg:block"
+      />
+    </div>
+
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="card grid gap-5 p-6 sm:p-10">
+      <input type="hidden" name="access_key" value="25c1888d-2861-4dc5-9ae6-ca3148a9bd9a" />
+      <input type="hidden" name="subject" value="Neue Nachricht über anikvonrohr.de" />
+      <input type="hidden" name="from_name" value="anikvonrohr.de" />
+      <!-- Honeypot against spam bots -->
+      <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="name" class="mb-1.5 block font-bold">
+            Name{" "}
+            <span class="text-clay-600" aria-hidden="true">
+              *
+            </span>
+          </label>
+          <input type="text" name="name" id="name" autocomplete="name" required class={field} />
+        </div>
+        <div>
+          <label for="email" class="mb-1.5 block font-bold">
+            E-Mail-Adresse{" "}
+            <span class="text-clay-600" aria-hidden="true">
+              *
+            </span>
+          </label>
+          <input type="email" name="email" id="email" autocomplete="email" required class={field} />
         </div>
       </div>
 
-      <div class="grid md:gap-1 lg:grid-cols-[auto_1fr] xl:grid-cols-[auto_2fr]">
-        <div
-          class="h-full overflow-hidden"
-        >
-          <Image
-            src={Phone}
-            alt="Hier ist ein Bild von einem Telefon."
-            class="object-cover w-full scale-100 h-96 lg:h-full lg:w-96 hover:scale-103"
-            format="avif"
-            id="contact-information__image"
-          />
-        </div>
-
-        <!-- https://web3forms.com/ -->
-        <div class="items-center col-span-1">
-          <div class="flex">
-            <div
-              class="w-full mx-auto bg-[var(--air-superiority-blue-200)] md:mt-0 p-2"
-            >
-              <div class="text-center text-[var(--bone-800)]">
-                <h1 class="my-3 text-3xl font-semibold">
-                  Schreib mir!
-                </h1>
-                <p class="text-xl">
-                  Bitte fülle untenstehende Informationen aus, um mich zu
-                  kontaktieren.
-                </p>
-              </div>
-              <div class="m-7">
-                <form
-                  action="https://api.web3forms.com/submit"
-                  method="POST"
-                  id="form"
-                  class="h-full"
-                >
-                  <input
-                    type="hidden"
-                    name="access_key"
-                    value="25c1888d-2861-4dc5-9ae6-ca3148a9bd9a"
-                  />
-                  <input
-                    type="hidden"
-                    name="subject"
-                    value="Neue Nachricht von deiner Webseite"
-                  />
-                  <input
-                    type="checkbox"
-                    name="botcheck"
-                    id=""
-                    style="display: none;"
-                  />
-
-                  <div class="mb-6">
-                    <label
-                      for="name"
-                      class="block mb-2 text-lg"
-                      >Vollständiger Name</label
-                    >
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      placeholder="Vorname Nachname"
-                      required
-                      class="w-full px-3 py-2 text-gray-800 border border-gray-300 placeholder-amber-800/50 bg-[var(--background-50)] focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300"
-                    />
-                  </div>
-                  <div class="mb-6">
-                    <label
-                      for="email"
-                      class="block mb-2 text-lg"
-                      >Email Addresse</label
-                    >
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      placeholder="deine@email.de"
-                      required
-                      class="w-full px-3 py-2 text-gray-800 border border-gray-300 placeholder-amber-800/50 bg-[var(--background-50)] focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300"
-                    />
-                  </div>
-                  <div class="mb-6">
-                    <label for="phone" class="text-lg"
-                      >Telefonnummer</label
-                    >
-                    <input
-                      type="text"
-                      name="phone"
-                      id="phone"
-                      placeholder="+49 170 123456"
-                      required
-                      class="w-full px-3 py-2 text-gray-800 border border-gray-300 placeholder-amber-800/50 bg-[var(--background-50)] focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300"
-                    />
-                  </div>
-                  <div class="mb-6">
-                    <label
-                      for="message"
-                      class="block mb-2 text-lg"
-                      >Nachricht</label
-                    >
-
-                    <textarea
-                      rows="5"
-                      name="message"
-                      id="message"
-                      placeholder="Nachricht"
-                      class="w-full px-3 py-2 text-gray-800 border border-gray-300 placeholder-amber-800/50 bg-[var(--background-50)] focus:outline-none focus:ring focus:ring-amber-100 focus:border-amber-300"
-                      required></textarea>
-                  </div>
-                  <div class="mb-6">
-                    <button
-                      type="submit"
-                      class="w-full px-3 py-4 text-[--text-900] bg-[var(--background-50)] hover:text-stone-50 hover:bg-[var(--air-superiority-blue-500)] focus:bg-indigo-600 focus:outline-none"
-                    >
-                      Nachricht abschicken
-                    </button>
-                  </div>
-                  <p class="text-base text-center text-gray-500" id="result">
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div>
+        <label for="phone" class="mb-1.5 block font-bold">
+          Telefonnummer <span class="text-ink-muted font-normal">(optional)</span>
+        </label>
+        <input type="tel" name="phone" id="phone" autocomplete="tel" class={field} />
       </div>
-    </section>
-  </main>
+
+      <div>
+        <label for="message" class="mb-1.5 block font-bold">
+          Ihre Nachricht{" "}
+          <span class="text-clay-600" aria-hidden="true">
+            *
+          </span>
+        </label>
+        <textarea rows="6" name="message" id="message" required class={field}></textarea>
+      </div>
+
+      <p class="text-ink-muted text-sm">
+        Mit dem Absenden werden Ihre Angaben zur Bearbeitung Ihrer Anfrage über den Dienst Web3Forms an mich
+        übermittelt. Mehr dazu in der{" "}
+        <a href="/datenschutzerklaerung" class="underline underline-offset-2">
+          Datenschutzerklärung
+        </a>
+        .
+      </p>
+
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+        <button type="submit" class="btn-primary disabled:cursor-wait disabled:opacity-70">
+          Nachricht senden
+        </button>
+        <p id="form-status" role="status" aria-live="polite" class="text-sm font-bold"></p>
+      </div>
+    </form>
+  </div>
+</section>
 
 <script>
-  const form = document.getElementById("form") as HTMLFormElement;
-  const result = document.getElementById("result") as HTMLParagraphElement;
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const status = document.getElementById("form-status");
 
-  form!.addEventListener("submit", function (e) {
-    const formData = new FormData(form);
+  form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (!status) return;
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
 
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
+    button?.setAttribute("disabled", "");
+    status.className = "text-sm font-bold text-ink-muted";
+    status.textContent = "Wird gesendet …";
 
-    result!.innerHTML = "Bitte warten...";
-
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: json,
-    })
-      .then(async (response) => {
-        let json = await response.json();
-        if (response.status == 200) {
-          result!.innerHTML = json.message;
-          result!.classList.remove("text-gray-500");
-          result!.classList.add("text-green-500");
-        } else {
-          console.log(response);
-          result!.innerHTML = json.message;
-          result!.classList.remove("text-gray-500");
-          result!.classList.add("text-red-500");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        result!.innerHTML = "Etwas ist schiefgelaufen!";
-      })
-      .then(function () {
-        form!.reset();
-        setTimeout(() => {
-          result!.style.display = "none";
-        }, 3000);
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form)
       });
+      const data = await response.json();
+      if (!response.ok || !data.success) throw new Error(data.message);
+
+      status.className = "text-sm font-bold text-sage-800";
+      status.textContent = "Vielen Dank! Ihre Nachricht ist angekommen.";
+      form.reset();
+    } catch {
+      status.className = "text-sm font-bold text-red-800";
+      status.textContent =
+        "Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie mir eine E-Mail.";
+    } finally {
+      button?.removeAttribute("disabled");
+    }
   });
 </script>
-
-<style>
-  #contact-information__name {
-    font-size: clamp(2rem, 1.25rem + 2.5vi, 4rem);
-  }
-  #contact-information__title {
-    font-size: clamp(1rem, 1rem + 0.75vi, 3rem);
-  }
-  #contact-information__image {
-    transition: all 0.5s ease-in-out;
-  }
-</style>

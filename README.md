@@ -6,23 +6,13 @@ Diese [Website](https://www.anikvonrohr.de) wurde entwickelt, um Anik von Rohr, 
 
 ## 🚀 Technologien
 
-Die Website wurde mit folgenden modernen Technologien entwickelt:
-
-- **[Astro](https://astro.build/)** - Ein modernes Web-Framework, das für Geschwindigkeit und Benutzerfreundlichkeit optimiert ist
-- **[TailwindCSS](https://tailwindcss.com/)** - Utility-First CSS-Framework für schnelles und responsives Design
-- **[AlpineJS](https://alpinejs.dev/)** - Minimalistisches JavaScript-Framework für interaktive UI-Komponenten
+- **[Astro 7](https://astro.build/)** – statische Seiten, optimierte Bilder (`astro:assets`), Sitemap & robots.txt
+- **[Tailwind CSS 4](https://tailwindcss.com/)** – Design-Tokens in `src/styles/global.css` (`@theme`, `@utility`)
+- **Selbst gehostete Schriften** via Fontsource (Playfair Display, Lato) – keine Verbindung zu Google Fonts
+- **Native Web-Plattform statt Frameworks**: Popover-API für das mobile Menü, CSS View Transitions für Seitenwechsel
+- **Matomo** (selbst gehostet, ohne Cookies) für die Webanalyse
 
 ### Besondere Komponenten
-
-#### 🎠 Swiffy Slider
-
-Die Website verwendet den [Swiffy Slider](https://swiffyslider.com/) für dynamische und responsive Karussell-Komponenten. Der Slider ist in der Datei `Carousel.astro` implementiert und zeigt verschiedene Beratungssituationen auf ansprechende Weise an.
-
-Hauptmerkmale der Slider-Implementation:
-- Responsive Design für verschiedene Bildschirmgrößen
-- Automatisches Abspielen der Slides
-- Navigations-Elemente für manuelle Steuerung
-- Stilvolle Animation und Übergangseffekte
 
 #### 📝 Web3Forms Kontaktformular
 
@@ -45,7 +35,14 @@ npm run build
 
 # Build-Ergebnis vorab anzeigen
 npm run preview
+
+# Typen prüfen, linten, formatieren
+npm run check
+npm run lint
+npm run format
 ```
+
+Voraussetzung: Node.js ≥ 22.
 
 ## 📦 Projektstruktur
 
@@ -56,8 +53,8 @@ npm run preview
 │   ├── components/    # UI-Komponenten
 │   ├── layouts/       # Seitenlayouts
 │   ├── pages/         # Astro-Seiten
-│   ├── styles/        # Globale Stile
-│   └── images/        # Bildressourcen
+│   ├── styles/        # Globale Stile & Design-Tokens
+│   └── assets/images/ # Bildressourcen (werden beim Build optimiert)
 └── package.json       # Projektabhängigkeiten
 ```
 

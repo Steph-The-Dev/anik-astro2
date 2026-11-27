@@ -1,0 +1,50 @@
+---
+/**
+ * Renders contact data (e-mail, phone, postal address) only after page load via JavaScript.
+ * The HTML source contains an encoded string, not the plain value – this keeps simple
+ * crawlers and address harvesters from collecting the data. Visitors see the normal text/link.
+ */
+import { encode } from "@lib/contact";
+
+interface Props {
+  value: string;
+  kind?: "email" | "tel" | "text";
+  class?: string;
+}
+
+const { value, kind = "text", class: className } = Astro.props;
+---
+
+<span class:list={["protected", className]} data-protected={encode(value)} data-kind={kind}>
+  <span class="text-ink-muted">wird geladen …</span>
+  <noscript>(bitte JavaScript aktivieren)</noscript>
+</span>
+
+<script>
+  const KEY = 0x5a;
+
+  const decode = (hex: string) =>
+    (hex.match(/.{4}/g) ?? [])
+      .reverse()
+      .map((h) => String.fromCharCode(parseInt(h, 16) ^ KEY))
+      .join("");
+
+  document.querySelectorAll<HTMLElement>("[data-protected]").forEach((el) => {
+    const value = decode(el.dataset.protected ?? "");
+    const kind = el.dataset.kind;
+    el.replaceChildren();
+
+    if (kind === "email" || kind === "tel") {
+      const a = document.createElement("a");
+      a.href = kind === "email" ? `mailto:${value}` : `tel:${value.replace(/\s/g, "")}`;
+      a.textContent = value;
+      el.append(a);
+    } else {
+      value.split("\n").forEach((line, i) => {
+        if (i > 0) el.append(document.createElement("br"));
+        el.append(line);
+      });
+    }
+    el.removeAttribute("data-protected");
+  });
+</script>

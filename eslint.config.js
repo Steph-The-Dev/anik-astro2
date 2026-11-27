@@ -1,16 +1,9 @@
 import eslintPluginAstro from "eslint-plugin-astro";
+import tseslint from "typescript-eslint";
+
 export default [
-  // add more generic rule sets here, such as:
-  // js.configs.recommended,
+  { ignores: ["dist/", ".astro/", "node_modules/", "src/env.d.ts"] },
+  ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
-  {
-    plugins: ["jsx-a11y"],
-  },
-  {
-    rules: {
-      "jsx-a11y/rule-name": 2,
-      // override/add rules settings here, such as:
-      // "astro/no-set-html-directive": "error"
-    },
-  },
+  ...eslintPluginAstro.configs["jsx-a11y-recommended"]
 ];
