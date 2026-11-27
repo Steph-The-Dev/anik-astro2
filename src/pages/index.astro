@@ -1,14 +1,18 @@
 ---
 import LayoutSite from "@layouts/LayoutSite.astro";
 import Hero from "@components/site/homepage/Hero.astro";
-import Carousel from "@components/site/homepage/Carousel.astro";
-import Quote from "@components/site/homepage/Quote.astro";
+import Topics from "@components/site/homepage/Topics.astro";
+import Quote from "@components/site/common/Quote.astro";
 import Contact from "@components/site/homepage/Contact.astro";
 ---
 
-<LayoutSite title="Anik von Rohr" class="bg-bg-primary">
+<LayoutSite>
   <Hero />
-  <Carousel />
-  <Quote />
+  <Topics />
+  <Quote
+    text="Das Leben ist nicht das, was es sein sollte. Es ist, was es ist. Die Art und Weise, damit umzugehen, macht den Unterschied."
+    author="Virginia Satir"
+    source="Psychotherapeutin und Familientherapeutin"
+  />
   <Contact />
 </LayoutSite>

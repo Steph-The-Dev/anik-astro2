@@ -6,33 +6,27 @@ Diese [Website](https://www.anikvonrohr.de) wurde entwickelt, um Anik von Rohr, 
 
 ## 🚀 Technologien
 
-Die Website wurde mit folgenden modernen Technologien entwickelt:
-
-- **[Astro](https://astro.build/)** - Ein modernes Web-Framework, das für Geschwindigkeit und Benutzerfreundlichkeit optimiert ist
-- **[TailwindCSS](https://tailwindcss.com/)** - Utility-First CSS-Framework für schnelles und responsives Design
-- **[AlpineJS](https://alpinejs.dev/)** - Minimalistisches JavaScript-Framework für interaktive UI-Komponenten
+- **[Astro 7](https://astro.build/)** – statische Seiten, optimierte Bilder (`astro:assets`), Sitemap & robots.txt
+- **[Tailwind CSS 4](https://tailwindcss.com/)** – Design-Tokens in `src/styles/global.css` (`@theme`, `@utility`)
+- **Selbst gehostete Schriften** via Fontsource (Playfair Display, Lato) – keine Verbindung zu Google Fonts
+- **Native Web-Plattform statt Frameworks**: Popover-API für das mobile Menü, CSS View Transitions für Seitenwechsel
+- **Matomo** (selbst gehostet, ohne Cookies) für die Webanalyse
 
 ### Besondere Komponenten
 
-#### 🎠 Swiffy Slider
+#### 📝 Kontaktformular (eigenes PHP-Skript)
 
-Die Website verwendet den [Swiffy Slider](https://swiffyslider.com/) für dynamische und responsive Karussell-Komponenten. Der Slider ist in der Datei `Carousel.astro` implementiert und zeigt verschiedene Beratungssituationen auf ansprechende Weise an.
+Das Formular sendet an `public/kontakt.php`, das auf dem eigenen Webspace läuft und die Anfrage per `mail()` weiterleitet – ohne externen Formulardienst.
 
-Hauptmerkmale der Slider-Implementation:
-- Responsive Design für verschiedene Bildschirmgrößen
-- Automatisches Abspielen der Slides
-- Navigations-Elemente für manuelle Steuerung
-- Stilvolle Animation und Übergangseffekte
+- Spam-Schutz: Honeypot-Feld, Mindest-Ausfülldauer, Rate-Limit pro IP (nur Hash, verfällt nach 1 h)
+- Funktioniert mit und ohne JavaScript (JSON-Antwort bzw. Weiterleitung mit `?kontakt=ok|fehler`)
+- Die Empfängeradresse steht nicht im Repository: Beim Build wird `dist/kontakt-config.php` aus `.env` erzeugt
+- Voraussetzung auf dem Server: PHP ≥ 8.1 mit funktionierendem `mail()` (z. B. netcup Webhosting)
+- Im Dev-Server (`npm run dev` / `preview`) läuft kein PHP – das Formular lässt sich nur auf dem Webspace testen
 
-#### 📝 Web3Forms Kontaktformular
+### 🔒 Kontaktdaten & Umgebungsvariablen
 
-Die Kontaktfunktionalität wird über [Web3Forms](https://web3forms.com/) bereitgestellt, einer serverlosen Lösung für Formulare. Die Implementation ist in der Datei `Contact.astro` zu finden.
-
-Vorteile der Web3Forms-Integration:
-- Keine Server-Konfiguration notwendig
-- SPAM-Schutz
-- Einfache Weiterleitung von Nachrichten an die E-Mail-Adresse
-- Benutzerfreundliche Fehlerbehandlung
+E-Mail, Telefon und Adresse kommen aus `.env` (Vorlage: `.env.example`) und werden nur kodiert ins HTML geschrieben (`Protected.astro`). Ohne `.env` bricht der Build bewusst ab.
 
 ## 🛠️ Entwicklung
 
@@ -45,7 +39,14 @@ npm run build
 
 # Build-Ergebnis vorab anzeigen
 npm run preview
+
+# Typen prüfen, linten, formatieren
+npm run check
+npm run lint
+npm run format
 ```
+
+Voraussetzung: Node.js ≥ 22.
 
 ## 📦 Projektstruktur
 
@@ -56,8 +57,8 @@ npm run preview
 │   ├── components/    # UI-Komponenten
 │   ├── layouts/       # Seitenlayouts
 │   ├── pages/         # Astro-Seiten
-│   ├── styles/        # Globale Stile
-│   └── images/        # Bildressourcen
+│   ├── styles/        # Globale Stile & Design-Tokens
+│   └── assets/images/ # Bildressourcen (werden beim Build optimiert)
 └── package.json       # Projektabhängigkeiten
 ```
 
