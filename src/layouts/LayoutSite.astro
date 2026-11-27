@@ -1,6 +1,7 @@
 ---
 import Navbar from "@components/site/common/Navbar.astro";
 import Footer from "@components/site/common/Footer.astro";
+import ContactDialog from "@components/site/common/ContactDialog.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -78,5 +79,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       <slot />
     </main>
     <Footer />
+    <ContactDialog />
   </body>
 </html>

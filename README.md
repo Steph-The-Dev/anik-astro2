@@ -40,7 +40,7 @@ CONTACT_FORM_FROM=                                  # optional, Absender für Fo
 
 ## 📝 Kontaktformular
 
-Das Formular sendet an `public/kontakt.php`, das die Anfrage per `mail()` an die Adresse aus `CONTACT_EMAIL` weiterleitet. Gespeichert wird nichts.
+Das Formular (`ContactForm.astro`) steht im Kontaktbereich der Startseite und als Pop-up (`ContactDialog.astro`), das sich über alle Buttons mit `data-contact-dialog` öffnet – ohne JavaScript führen diese Links zum Kontaktbereich. Es sendet an `public/kontakt.php`, das die Anfrage per `mail()` an die Adresse aus `CONTACT_EMAIL` weiterleitet. Gespeichert wird nichts.
 
 - **Spam-Schutz:** Honeypot-Feld, Mindest-Ausfülldauer (im Browser gemessen), Rate-Limit von 5 Anfragen pro Stunde und IP (nur gehasht, verfällt nach 1 h), Origin-Check
 - **Mit und ohne JavaScript:** JSON-Antwort bzw. Weiterleitung mit `?kontakt=ok|fehler`
@@ -70,7 +70,7 @@ npm run format    # Prettier
 ├── src/
 │   ├── assets/images/       # Bilder (werden beim Build optimiert)
 │   ├── components/site/
-│   │   ├── common/          # Navbar, Footer, Quote, Protected
+│   │   ├── common/          # Navbar, Footer, Quote, Protected, ContactForm, ContactDialog
 │   │   └── homepage/        # Hero, Topics, Contact
 │   ├── layouts/             # LayoutSite (Meta-Tags, Matomo, Skip-Link)
 │   ├── lib/contact.ts       # Kontaktdaten aus .env + Kodierung

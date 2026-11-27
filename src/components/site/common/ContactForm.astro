@@ -1,0 +1,147 @@
+---
+/**
+ * Contact form, sent to public/kontakt.php on our own web space (no third-party form service).
+ * Used in the contact section of the homepage and in the contact dialog, so all IDs get a prefix.
+ */
+interface Props {
+  /** Prefix for element IDs – must be unique per page */
+  id: string;
+  /** Show the result of a submit without JavaScript (?kontakt=ok|fehler) in this form */
+  showRedirectResult?: boolean;
+  class?: string;
+}
+
+const { id, showRedirectResult = false, class: className } = Astro.props;
+const field =
+  "border-ink/15 placeholder:text-ink-muted/60 focus:border-sage-600 focus:ring-sage-600/20 w-full rounded-xl border bg-white px-4 py-3 transition outline-none focus:ring-4";
+---
+
+<form
+  id={`${id}-form`}
+  action="/kontakt.php"
+  method="POST"
+  class:list={["grid gap-5", className]}
+  data-contact-form
+  data-redirect-result={showRedirectResult ? "" : undefined}
+>
+  <!-- Time spent on the page (ms), set by JS on submit; forms sent within seconds are treated as spam -->
+  <input type="hidden" name="elapsed" value="" />
+  <!-- Honeypot against spam bots -->
+  <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label for={`${id}-name`} class="mb-1.5 block font-bold">
+        Name{" "}
+        <span class="text-clay-600" aria-hidden="true">
+          *
+        </span>
+      </label>
+      <input type="text" name="name" id={`${id}-name`} autocomplete="name" required class={field} />
+    </div>
+    <div>
+      <label for={`${id}-email`} class="mb-1.5 block font-bold">
+        E-Mail-Adresse{" "}
+        <span class="text-clay-600" aria-hidden="true">
+          *
+        </span>
+      </label>
+      <input type="email" name="email" id={`${id}-email`} autocomplete="email" required class={field} />
+    </div>
+  </div>
+
+  <div>
+    <label for={`${id}-phone`} class="mb-1.5 block font-bold">
+      Telefonnummer <span class="text-ink-muted font-normal">(optional)</span>
+    </label>
+    <input type="tel" name="phone" id={`${id}-phone`} autocomplete="tel" class={field} />
+  </div>
+
+  <div>
+    <label for={`${id}-message`} class="mb-1.5 block font-bold">
+      Ihre Nachricht{" "}
+      <span class="text-clay-600" aria-hidden="true">
+        *
+      </span>
+    </label>
+    <textarea rows="6" name="message" id={`${id}-message`} required class={field}></textarea>
+  </div>
+
+  <p class="text-ink-muted text-sm">
+    Ihre Angaben werden ausschliesslich zur Bearbeitung Ihrer Anfrage per E-Mail an mich übermittelt und nicht an Dritte
+    weitergegeben. Bitte teilen Sie mir sehr persönliche Informationen lieber im Gespräch mit. Mehr dazu in der{" "}
+    <a href="/datenschutzerklaerung" class="underline underline-offset-2">
+      Datenschutzerklärung
+    </a>
+    .
+  </p>
+
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+    <button type="submit" class="btn-primary disabled:cursor-wait disabled:opacity-70">
+      Nachricht senden
+    </button>
+    <p role="status" aria-live="polite" class="text-sm font-bold" data-form-status></p>
+  </div>
+</form>
+
+<script>
+  const SUCCESS = "Vielen Dank! Ihre Nachricht ist angekommen.";
+  const FAILURE = "Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie mir eine E-Mail.";
+
+  // Measured on the client, so a wrong device clock can't make a real enquiry look like spam
+  const loadedAt = performance.now();
+
+  document.querySelectorAll<HTMLFormElement>("[data-contact-form]").forEach((form) => {
+    const status = form.querySelector<HTMLElement>("[data-form-status]");
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+    const setStatus = (ok: boolean | null, text: string) => {
+      if (!status) return;
+      const color = ok === null ? "text-ink-muted" : ok ? "text-sage-800" : "text-red-800";
+      status.className = `text-sm font-bold ${color}`;
+      status.textContent = text;
+    };
+
+    // Result of a submit without JavaScript (kontakt.php redirects back with ?kontakt=ok|fehler)
+    if (form.hasAttribute("data-redirect-result")) {
+      const result = new URLSearchParams(location.search).get("kontakt");
+      if (result) {
+        setStatus(result === "ok", result === "ok" ? SUCCESS : FAILURE);
+        history.replaceState(null, "", location.pathname + location.hash);
+      }
+    }
+
+    // Start fresh when the form is shown again (e.g. dialog reopened)
+    form.addEventListener("input", () => {
+      if (status?.textContent && !button?.disabled) setStatus(null, "");
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      button?.setAttribute("disabled", "");
+      setStatus(null, "Wird gesendet …");
+
+      const data = new FormData(form);
+      data.set("elapsed", String(Math.round(performance.now() - loadedAt)));
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: data
+        });
+        const json = await response.json().catch(() => ({}));
+        if (!response.ok || !json.success) {
+          setStatus(false, json.message ?? FAILURE);
+          return;
+        }
+        setStatus(true, json.message ?? SUCCESS);
+        form.reset();
+      } catch {
+        setStatus(false, FAILURE);
+      } finally {
+        button?.removeAttribute("disabled");
+      }
+    });
+  });
+</script>

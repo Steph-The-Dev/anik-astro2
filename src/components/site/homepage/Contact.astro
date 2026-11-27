@@ -3,9 +3,7 @@ import { Image } from "astro:assets";
 import Phone from "@images/kontakt-phone.jpg";
 import { CONTACT } from "@lib/contact";
 import Protected from "@components/site/common/Protected.astro";
-
-const field =
-  "border-ink/15 placeholder:text-ink-muted/60 focus:border-sage-600 focus:ring-sage-600/20 w-full rounded-xl border bg-white px-4 py-3 transition outline-none focus:ring-4";
+import ContactForm from "@components/site/common/ContactForm.astro";
 ---
 
 <section id="kontakt" aria-labelledby="contact-title" class="bg-sage-100 py-20 md:py-28">
@@ -44,123 +42,6 @@ const field =
       />
     </div>
 
-    <!-- Sent to public/kontakt.php on our own web space – no third-party form service -->
-    <form id="contact-form" action="/kontakt.php" method="POST" class="card grid gap-5 p-6 sm:p-10">
-      <!-- Time spent on the page (ms), set by JS on submit; forms sent within seconds are treated as spam -->
-      <input type="hidden" name="elapsed" value="" />
-      <!-- Honeypot against spam bots -->
-      <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-      <div class="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label for="name" class="mb-1.5 block font-bold">
-            Name{" "}
-            <span class="text-clay-600" aria-hidden="true">
-              *
-            </span>
-          </label>
-          <input type="text" name="name" id="name" autocomplete="name" required class={field} />
-        </div>
-        <div>
-          <label for="email" class="mb-1.5 block font-bold">
-            E-Mail-Adresse{" "}
-            <span class="text-clay-600" aria-hidden="true">
-              *
-            </span>
-          </label>
-          <input type="email" name="email" id="email" autocomplete="email" required class={field} />
-        </div>
-      </div>
-
-      <div>
-        <label for="phone" class="mb-1.5 block font-bold">
-          Telefonnummer <span class="text-ink-muted font-normal">(optional)</span>
-        </label>
-        <input type="tel" name="phone" id="phone" autocomplete="tel" class={field} />
-      </div>
-
-      <div>
-        <label for="message" class="mb-1.5 block font-bold">
-          Ihre Nachricht{" "}
-          <span class="text-clay-600" aria-hidden="true">
-            *
-          </span>
-        </label>
-        <textarea rows="6" name="message" id="message" required class={field}></textarea>
-      </div>
-
-      <p class="text-ink-muted text-sm">
-        Ihre Angaben werden ausschliesslich zur Bearbeitung Ihrer Anfrage per E-Mail an mich übermittelt und nicht an
-        Dritte weitergegeben. Bitte teilen Sie mir sehr persönliche Informationen lieber im Gespräch mit. Mehr dazu in
-        der{" "}
-        <a href="/datenschutzerklaerung" class="underline underline-offset-2">
-          Datenschutzerklärung
-        </a>
-        .
-      </p>
-
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-        <button type="submit" class="btn-primary disabled:cursor-wait disabled:opacity-70">
-          Nachricht senden
-        </button>
-        <p id="form-status" role="status" aria-live="polite" class="text-sm font-bold"></p>
-      </div>
-    </form>
+    <ContactForm id="contact" showRedirectResult class="card p-6 sm:p-10" />
   </div>
 </section>
-
-<script>
-  const form = document.getElementById("contact-form") as HTMLFormElement | null;
-  const status = document.getElementById("form-status");
-  const SUCCESS = "Vielen Dank! Ihre Nachricht ist angekommen.";
-  const FAILURE = "Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie mir eine E-Mail.";
-
-  const setStatus = (ok: boolean, text: string) => {
-    if (!status) return;
-    status.className = `text-sm font-bold ${ok ? "text-sage-800" : "text-red-800"}`;
-    status.textContent = text;
-  };
-
-  // Measured on the client, so a wrong device clock can't make a real enquiry look like spam
-  const loadedAt = performance.now();
-
-  // Result of a submit without JavaScript (kontakt.php redirects back with ?kontakt=ok|fehler)
-  const result = new URLSearchParams(location.search).get("kontakt");
-  if (result) {
-    setStatus(result === "ok", result === "ok" ? SUCCESS : FAILURE);
-    history.replaceState(null, "", location.pathname + location.hash);
-  }
-
-  form?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (!status) return;
-    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-
-    button?.setAttribute("disabled", "");
-    status.className = "text-sm font-bold text-ink-muted";
-    status.textContent = "Wird gesendet …";
-
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: (() => {
-          const data = new FormData(form);
-          data.set("elapsed", String(Math.round(performance.now() - loadedAt)));
-          return data;
-        })()
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok || !data.success) {
-        setStatus(false, data.message ?? FAILURE);
-        return;
-      }
-      setStatus(true, data.message ?? SUCCESS);
-      form.reset();
-    } catch {
-      setStatus(false, FAILURE);
-    } finally {
-      button?.removeAttribute("disabled");
-    }
-  });
-</script>

@@ -1,0 +1,91 @@
+---
+/**
+ * Contact form in a modal dialog. Opened by every link with [data-contact-dialog];
+ * without JavaScript those links simply lead to the contact section on the homepage.
+ */
+import { CONTACT } from "@lib/contact";
+import ContactForm from "./ContactForm.astro";
+import Protected from "./Protected.astro";
+---
+
+<dialog
+  id="contact-dialog"
+  aria-labelledby="contact-dialog-title"
+  closedby="any"
+  class="card text-ink m-auto max-h-[calc(100dvh-2rem)] w-[min(44rem,calc(100vw-2rem))] max-w-none overflow-y-auto p-0"
+>
+  <div class="p-6 sm:p-10">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <p class="eyebrow">Kontakt</p>
+        <h2 id="contact-dialog-title" class="mt-2 text-2xl font-semibold sm:text-3xl">
+          Schreiben Sie mir
+        </h2>
+      </div>
+      <form method="dialog">
+        <button
+          type="submit"
+          class="text-ink-muted hover:bg-sand-100 hover:text-ink -mt-1 -mr-2 rounded-full p-2 transition-colors"
+          aria-label="Dialog schliessen"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <p class="text-ink-muted mt-3">
+      Sie möchten ein erstes Gespräch vereinbaren oder haben eine Frage? Ich melde mich zeitnah bei Ihnen zurück. Sie
+      erreichen mich auch per E-Mail an <Protected value={CONTACT.email} kind="email" class="contact-link" /> oder
+      telefonisch unter <Protected value={CONTACT.phone} kind="tel" class="contact-link" />.
+    </p>
+
+    <ContactForm id="dialog" class="mt-6" />
+  </div>
+</dialog>
+
+<style>
+  /* The page behind doesn't scroll while the dialog is open */
+  :global(html:has(#contact-dialog[open])) {
+    overflow: hidden;
+  }
+
+  dialog::backdrop {
+    background: rgb(47 38 30 / 0.55);
+    backdrop-filter: blur(2px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    dialog[open] {
+      animation: dialog-in 0.2s ease-out;
+    }
+    @keyframes dialog-in {
+      from {
+        opacity: 0;
+        transform: translateY(0.75rem);
+      }
+    }
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById("contact-dialog") as HTMLDialogElement | null;
+
+  if (dialog) {
+    document.querySelectorAll<HTMLAnchorElement>("[data-contact-dialog]").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        dialog.showModal();
+        dialog.querySelector<HTMLInputElement>("input[name='name']")?.focus();
+      });
+    });
+
+    // Close on backdrop click for browsers without closedby="any"
+    if (!("closedBy" in HTMLDialogElement.prototype)) {
+      dialog.addEventListener("click", (e) => {
+        if (e.target === dialog) dialog.close();
+      });
+    }
+  }
+</script>
