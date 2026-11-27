@@ -44,10 +44,10 @@ const field =
       />
     </div>
 
-    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="card grid gap-5 p-6 sm:p-10">
-      <input type="hidden" name="access_key" value="25c1888d-2861-4dc5-9ae6-ca3148a9bd9a" />
-      <input type="hidden" name="subject" value="Neue Nachricht über anikvonrohr.de" />
-      <input type="hidden" name="from_name" value="anikvonrohr.de" />
+    <!-- Sent to public/kontakt.php on our own web space – no third-party form service -->
+    <form id="contact-form" action="/kontakt.php" method="POST" class="card grid gap-5 p-6 sm:p-10">
+      <!-- Time spent on the page (ms), set by JS on submit; forms sent within seconds are treated as spam -->
+      <input type="hidden" name="elapsed" value="" />
       <!-- Honeypot against spam bots -->
       <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
@@ -90,8 +90,9 @@ const field =
       </div>
 
       <p class="text-ink-muted text-sm">
-        Mit dem Absenden werden Ihre Angaben zur Bearbeitung Ihrer Anfrage über den Dienst Web3Forms an mich
-        übermittelt. Mehr dazu in der{" "}
+        Ihre Angaben werden ausschliesslich zur Bearbeitung Ihrer Anfrage per E-Mail an mich übermittelt und nicht an
+        Dritte weitergegeben. Bitte teilen Sie mir sehr persönliche Informationen lieber im Gespräch mit. Mehr dazu in
+        der{" "}
         <a href="/datenschutzerklaerung" class="underline underline-offset-2">
           Datenschutzerklärung
         </a>
@@ -111,6 +112,24 @@ const field =
 <script>
   const form = document.getElementById("contact-form") as HTMLFormElement | null;
   const status = document.getElementById("form-status");
+  const SUCCESS = "Vielen Dank! Ihre Nachricht ist angekommen.";
+  const FAILURE = "Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie mir eine E-Mail.";
+
+  const setStatus = (ok: boolean, text: string) => {
+    if (!status) return;
+    status.className = `text-sm font-bold ${ok ? "text-sage-800" : "text-red-800"}`;
+    status.textContent = text;
+  };
+
+  // Measured on the client, so a wrong device clock can't make a real enquiry look like spam
+  const loadedAt = performance.now();
+
+  // Result of a submit without JavaScript (kontakt.php redirects back with ?kontakt=ok|fehler)
+  const result = new URLSearchParams(location.search).get("kontakt");
+  if (result) {
+    setStatus(result === "ok", result === "ok" ? SUCCESS : FAILURE);
+    history.replaceState(null, "", location.pathname + location.hash);
+  }
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -125,18 +144,21 @@ const field =
       const response = await fetch(form.action, {
         method: "POST",
         headers: { Accept: "application/json" },
-        body: new FormData(form)
+        body: (() => {
+          const data = new FormData(form);
+          data.set("elapsed", String(Math.round(performance.now() - loadedAt)));
+          return data;
+        })()
       });
-      const data = await response.json();
-      if (!response.ok || !data.success) throw new Error(data.message);
-
-      status.className = "text-sm font-bold text-sage-800";
-      status.textContent = "Vielen Dank! Ihre Nachricht ist angekommen.";
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.success) {
+        setStatus(false, data.message ?? FAILURE);
+        return;
+      }
+      setStatus(true, data.message ?? SUCCESS);
       form.reset();
     } catch {
-      status.className = "text-sm font-bold text-red-800";
-      status.textContent =
-        "Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie mir eine E-Mail.";
+      setStatus(false, FAILURE);
     } finally {
       button?.removeAttribute("disabled");
     }

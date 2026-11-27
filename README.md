@@ -14,15 +14,19 @@ Diese [Website](https://www.anikvonrohr.de) wurde entwickelt, um Anik von Rohr, 
 
 ### Besondere Komponenten
 
-#### 📝 Web3Forms Kontaktformular
+#### 📝 Kontaktformular (eigenes PHP-Skript)
 
-Die Kontaktfunktionalität wird über [Web3Forms](https://web3forms.com/) bereitgestellt, einer serverlosen Lösung für Formulare. Die Implementation ist in der Datei `Contact.astro` zu finden.
+Das Formular sendet an `public/kontakt.php`, das auf dem eigenen Webspace läuft und die Anfrage per `mail()` weiterleitet – ohne externen Formulardienst.
 
-Vorteile der Web3Forms-Integration:
-- Keine Server-Konfiguration notwendig
-- SPAM-Schutz
-- Einfache Weiterleitung von Nachrichten an die E-Mail-Adresse
-- Benutzerfreundliche Fehlerbehandlung
+- Spam-Schutz: Honeypot-Feld, Mindest-Ausfülldauer, Rate-Limit pro IP (nur Hash, verfällt nach 1 h)
+- Funktioniert mit und ohne JavaScript (JSON-Antwort bzw. Weiterleitung mit `?kontakt=ok|fehler`)
+- Die Empfängeradresse steht nicht im Repository: Beim Build wird `dist/kontakt-config.php` aus `.env` erzeugt
+- Voraussetzung auf dem Server: PHP ≥ 8.1 mit funktionierendem `mail()` (z. B. netcup Webhosting)
+- Im Dev-Server (`npm run dev` / `preview`) läuft kein PHP – das Formular lässt sich nur auf dem Webspace testen
+
+### 🔒 Kontaktdaten & Umgebungsvariablen
+
+E-Mail, Telefon und Adresse kommen aus `.env` (Vorlage: `.env.example`) und werden nur kodiert ins HTML geschrieben (`Protected.astro`). Ohne `.env` bricht der Build bewusst ab.
 
 ## 🛠️ Entwicklung
 

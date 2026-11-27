@@ -15,7 +15,9 @@ export const CONTACT = {
   email: required("CONTACT_EMAIL", import.meta.env.CONTACT_EMAIL),
   phone: required("CONTACT_PHONE", import.meta.env.CONTACT_PHONE),
   // Lines separated by "|", e.g. "Musterstrasse 1|1234 Ort|Land"
-  address: required("CONTACT_ADDRESS", import.meta.env.CONTACT_ADDRESS).split("|").join("\n")
+  address: required("CONTACT_ADDRESS", import.meta.env.CONTACT_ADDRESS)
+    .split("|")
+    .join("\n")
 } as const;
 
 const KEY = 0x5a;
